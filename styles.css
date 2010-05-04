@@ -1,0 +1,75 @@
+/* ma vaffanculo.
+ * 
+ * Questo:
+ * #site-title #logo a (come ha mystique)
+ * ha piu' specificita' di #logo a (come avevo fatto io)
+ * e quindi il primo ha la precedenza sul secondo, anche se imposto
+ * successivamente come ordine di lettura nei css.
+ * Non lo sapevo proprio.
+ * */
+#site-title #logo a, #site-title #logo a:hover {
+	color: #080;
+}
+
+
+
+
+
+/*** TOP NAVIGATION ***/
+
+/* Colore testo dei link parent */
+ul#navigation li a{color: #080}
+
+/* link nei sottomenu della voce attiva */
+ul#navigation li.active a:hover{color: #080}
+ul#navigation li.active:hover a{background-color:white;}
+
+
+ul#navigation li.active a,
+ul#navigation li.active-parent a,
+ul#navigation li.active-ancestor a
+{background:#080 url(nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;}
+
+/* submenus */
+ul#navigation ul{border-color: #7b7;background-color: white}
+
+/* Padding nelle voci dei sottomenu, della voce attiva */
+/* Bordo esterno dei sottomenu attivi*/
+ul#navigation li.active ul,
+ul#navigation li.active-parent ul,ul#navigation li.active-ancestor ul
+{background-color: #fff;border-color: #7b7;}
+
+
+
+/* fade on mouse out  su tutti i sottomenu, attivi o non. */
+ul#navigation li li a.fadeThis span.hover,
+ul#navigation li.active li a.fadeThis span.hover,
+ul#navigation li.active-ancestor li a.fadeThis span.hover{background-color:#cfc;}
+
+
+
+/* Menu sopra */
+ul#navigation li.active a,
+ul#navigation li.active.home a {
+	text-shadow:#000 1px 1px 1px;
+}
+
+/* Sottomenu, inattivi */
+ul#navigation ul li a,
+ul#navigation li.active ul a
+{color: #080;text-shadow:#aaa 1px 1px 1px;}
+
+
+/* Mouseover sui menu sopra, se attivi */
+ul#navigation li.active a:hover,
+ul#navigation li.active.home a:hover
+{color: white}
+
+/* Mouseover sui sottomenu, se inattivi */
+ul#navigation ul li a:hover,
+ul#navigation li.active li a:hover
+{color: #080;text-shadow: white 1px 1px 1px;background-color:white;}
+
+/* Voce corrente, in un sottomenu */
+ul#navigation li li.active a {color: white}
+ul#navigation li ul li.active a:hover {color: #cfc;text-shadow: black 1px 1px 1px;}
