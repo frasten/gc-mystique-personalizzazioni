@@ -14,6 +14,7 @@ function mystique_stili_personalizzati() {
 	wp_enqueue_style( 'my-mystique', plugins_url('styles.css?', __FILE__) );
 }
 
+
 add_action( 'template_redirect', 'mystique_stili_personalizzati' );
 
 ?>
