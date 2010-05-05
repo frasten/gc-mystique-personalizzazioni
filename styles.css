@@ -80,18 +80,26 @@ ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 
 
 
 /* Immaginette personalizzate */
+
+/* freccina laterale negli elenchi puntati nella sidebar */
 .block li{background-image:url(icons.png)}
+/* iconcina del fumetto utilizzata quando ci sono commenti in un post */
 .post-info p.comments a.comments{background-image:url(icons.png)}
+/* Iconcina dei tags */
 .post-tags{background-image:url(icons.png)}
+/* freccina laterale negli elenchi puntati nella sidebar ? */
 .box ul.menuList li a span.entry{background-image:url(icons.png)}
 
+/* Freccetta sotto la voce corrente nel menu in alto */
 ul#navigation li.active a span.pointer,
 ul#navigation li.active-parent a span.pointer,
 ul#navigation li.active-ancestor a span.pointer
 {background-image:url(nav-pointer.png)}
 
+/* Pulsante Leggi... nei featured posts sulla home */
 #featured-content a.readmore{background-image:url(readmore.png)}
 
+/* Ombra sotto il menu superiore */
 .shadow-left{background-image:url(shadow.png);}
 .shadow-right{background-image:url(shadow.png);}
 
