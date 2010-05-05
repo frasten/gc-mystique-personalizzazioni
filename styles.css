@@ -124,7 +124,7 @@ li.comment .comment-head{background-image:url(comment-head.png);}
 li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostauthor{background-color:#32ba2f;}
 .search-form #searchfield,.search-form input.submit{background-image:url(search.png);}
 .tabs-wrap{background-image:url(tabs-bg.png);}
-/*.tabs li{background-image:url(tabs-c.png);}*/
+.tabs li{background-image:url(tabs-c.png);}
 .tabs li a{background-image:url(tabs.png);}
 
 
