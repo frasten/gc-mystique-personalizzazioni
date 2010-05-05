@@ -12,6 +12,19 @@
 }
 
 
+a:hover {color: #080;}
+.post-info a:hover {color: #080}
+.post-meta a:hover {color: #080}
+
+/* Titolo dei posts */
+h2.title a{color:#080;}
+h2.title a:hover{color:#2a2}
+
+h3.title a{color:#080;}
+h3.title a:hover{color:#2a2}
+.single-navigation a:hover {color: #080}
+.page-navigation a:hover, .comment-navigation a:hover{border-color: #080;background-color: #080}
+
 
 
 /*** TOP NAVIGATION ***/
