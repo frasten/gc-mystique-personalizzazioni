@@ -79,6 +79,24 @@ ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 
 
 
 
+/* Immaginette personalizzate */
+.block li{background-image:url(icons.png)}
+.post-info p.comments a.comments{background-image:url(icons.png)}
+.post-tags{background-image:url(icons.png)}
+.box ul.menuList li a span.entry{background-image:url(icons.png)}
+
+ul#navigation li.active a span.pointer,
+ul#navigation li.active-parent a span.pointer,
+ul#navigation li.active-ancestor a span.pointer
+{background-image:url(nav-pointer.png)}
+
+#featured-content a.readmore{background-image:url(readmore.png)}
+
+.shadow-left{background-image:url(shadow.png);}
+.shadow-right{background-image:url(shadow.png);}
+
+
+
 
 
 /*
