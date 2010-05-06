@@ -1,0 +1,177 @@
+/* ma vaffanculo.
+ * 
+ * Questo:
+ * #site-title #logo a (come ha mystique)
+ * ha piu' specificita' di #logo a (come avevo fatto io)
+ * e quindi il primo ha la precedenza sul secondo, anche se imposto
+ * successivamente come ordine di lettura nei css.
+ * Non lo sapevo proprio.
+ * */
+
+
+/* Titolo principale */
+#site-title #logo a, #site-title #logo a:hover {
+	color: #080;
+}
+
+/* Separiamo un pochino il contenuto vero e proprio dal resto */
+#main-inside{padding-top: 30px}
+
+/* Navigazione post precedente/successivo */
+.single-navigation div {color: #080}
+.single-navigation a {color: #888}
+.single-navigation a:href {color: #080}
+
+
+a:hover {color: #080;}
+.post-info a:hover {color: #080}
+.post-meta a:hover {color: #080}
+
+/* Titolo dei posts */
+h2.title a{color:#080;}
+h2.title a:hover{color:#2a2}
+
+h3.title a{color:#080;}
+h3.title a:hover{color:#2a2}
+.single-navigation a:hover {color: #080}
+.page-navigation a:hover, .comment-navigation a:hover{border-color: #080;background-color: #080}
+
+
+
+/*** TOP NAVIGATION ***/
+
+/* Colore testo dei link parent */
+ul#navigation li a{color: #080}
+
+/* link nei sottomenu della voce attiva */
+ul#navigation li.active a:hover{color: #080}
+ul#navigation li.active:hover a{background-color:white;}
+
+
+ul#navigation li.active a,
+ul#navigation li.active-parent a,
+ul#navigation li.active-ancestor a
+{background:#080 url(nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;}
+
+/* submenus */
+ul#navigation ul{border-color: #7b7;background-color: white}
+
+/* Padding nelle voci dei sottomenu, della voce attiva */
+/* Bordo esterno dei sottomenu attivi*/
+ul#navigation li.active ul,
+ul#navigation li.active-parent ul,ul#navigation li.active-ancestor ul
+{background-color: #fff;border-color: #7b7;}
+
+
+
+/* fade on mouse out  su tutti i sottomenu, attivi o non. */
+ul#navigation li li a.fadeThis span.hover,
+ul#navigation li.active li a.fadeThis span.hover,
+ul#navigation li.active-ancestor li a.fadeThis span.hover{background-color:#cfc;}
+
+
+
+/* Menu sopra */
+ul#navigation li.active a,
+ul#navigation li.active.home a {
+	text-shadow:#000 1px 1px 1px;
+}
+
+/* Sottomenu, inattivi */
+ul#navigation ul li a,
+ul#navigation li.active ul a
+{color: #080;text-shadow:#aaa 1px 1px 1px;}
+
+
+/* Mouseover sui menu sopra, se attivi */
+ul#navigation li.active a:hover,
+ul#navigation li.active.home a:hover
+{color: white}
+
+/* Mouseover sui sottomenu, se inattivi */
+ul#navigation ul li a:hover,
+ul#navigation li.active li a:hover
+{color: #080;text-shadow: white 1px 1px 1px;background-color:white;}
+
+/* Voce corrente, in un sottomenu */
+ul#navigation li li.active a {color: white}
+ul#navigation li ul li.active a:hover {color: #cfc;text-shadow: black 1px 1px 1px;}
+
+/* Sottomenu della voce corrente, se essa e' in un sottomenu */
+ul#navigation li li.active li a {color: #080}
+ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 1px;}
+
+
+
+/* Immaginette personalizzate */
+
+/* freccina laterale negli elenchi puntati nella sidebar */
+.block li{background-image:url(icons.png)}
+/* iconcina del fumetto utilizzata quando ci sono commenti in un post */
+.post-info p.comments a.comments{background-image:url(icons.png)}
+/* Iconcina dei tags */
+.post-tags{background-image:url(icons.png)}
+/* freccina laterale negli elenchi puntati nella sidebar ? */
+.box ul.menuList li a span.entry{background-image:url(icons.png)}
+
+/* Freccetta sotto la voce corrente nel menu in alto */
+ul#navigation li.active a span.pointer,
+ul#navigation li.active-parent a span.pointer,
+ul#navigation li.active-ancestor a span.pointer
+{background-image:url(nav-pointer.png)}
+
+/* Pulsante Leggi... nei featured posts sulla home */
+#featured-content a.readmore{background-image:url(readmore.png)}
+
+/* Ombra sotto il menu superiore */
+.shadow-left{background-image:url(shadow.png);}
+.shadow-right{background-image:url(shadow.png);}
+
+
+
+.block h3.title,.block h3.title span,.block .block-div,
+.block .block-div-arrow{background-image:url(block-title.png)}
+li.comment .comment-head{background-image:url(comment-head.png);}
+li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostauthor{background-color:#32ba2f;}
+.search-form #searchfield,.search-form input.submit{background-image:url(search.png);}
+.tabs-wrap{background-image:url(tabs-bg.png);}
+.tabs li{background-image:url(tabs-c.png);}
+.tabs li a{background-image:url(tabs.png);}
+
+
+/* es. archivio di >> maggio << */
+.altText{color:#2a2;}
+
+
+
+/*
+#site-title p.headline{color:#44a1fb;}
+.tag-cloud a:hover,.block-widget_tag_cloud a:hover{background-color:#44a1fb;}
+*/
+
+
+
+/* Risultati ricerca */
+.search h1.title {font-size: 200%}
+.search .title .error {color: #080}
+
+
+/* Extra navigation icons */
+#header p.nav-extra {top:-46px;height:54px;}
+#header a.nav-extra {height:60px;}
+
+#header a.nav-extra.rss{background:url("mystique_icons/nav-rss.png") no-repeat scroll right top transparent;}
+#header a.facebook{background:url("mystique_icons/nav-facebook.png") no-repeat scroll right top transparent;}
+#header a.email{background:url("mystique_icons/nav-email.png") no-repeat scroll right top transparent;}
+#header a.youtube{background:url("mystique_icons/nav-youtube.png") no-repeat scroll right top transparent;}
+
+
+/* Sexy Bookmarks */
+.sexy-bookmarks {margin: auto 20px !important;}
+
+body {background: url(body_sfondo.jpg) repeat scroll transparent;}
+
+/* Data di scrittura del post */
+.post-info{background-image:url(info-bar.png)}
+.post-date{text-transform:none;background-image: url(info-bar.png)}
+.post-date p.day{background-image:url(info-bar.png);color: #999}
