@@ -157,3 +157,7 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 #header a.googlewave{background:url("mystique_icons/nav-googlewave.png") no-repeat scroll right top transparent;}
 #header a.googlebuzz{background:url("mystique_icons/nav-googlebuzz.png") no-repeat scroll right top transparent;}
 #header a.youtube{background:url("mystique_icons/nav-youtube.png") no-repeat scroll right top transparent;}
+
+
+/* Sexy Bookmarks */
+.sexy-bookmarks {margin: auto 20px !important;}
