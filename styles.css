@@ -16,6 +16,10 @@
 
 #main-inside{padding-top: 30px}
 
+.single-navigation div {color: #080}
+.single-navigation a {color: #888}
+.single-navigation a:href {color: #080}
+
 
 a:hover {color: #080;}
 .post-info a:hover {color: #080}
