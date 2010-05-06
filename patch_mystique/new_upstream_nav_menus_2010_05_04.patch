@@ -1,0 +1,30 @@
+--- lib/core.php	2010-05-06 15:10:58.548553515 +0200
++++ lib/core.php	2010-05-06 15:12:16.019633992 +0200
+@@ -128,7 +128,7 @@
+ // menu walker
+ class mystique_MenuWalker extends Walker {
+   var $tree_type = array('post_type', 'taxonomy', 'custom');
+-  var $db_fields = array('parent' => 'post_parent', 'id' => 'object_id');
++  var $db_fields = array('parent' => 'menu_item_parent', 'id' => 'db_id');
+ 
+   function start_lvl(&$output, $depth) {
+     $indent = str_repeat("\t", $depth);
+@@ -145,8 +145,16 @@
+     $indent = ($depth) ? str_repeat("\t", $depth) : '';
+     $classes = $value = '';
+     $classes = array('type-'. $item->type, $item->classes);
+-    if ('custom' != $item->object) $classes[] = 'object-'. $item->object;
+-    if ($item->object_id == $wp_query->get_queried_object_id()) $classes[] = 'active';
++    if ('custom' != $item->object)  {
++      $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
++      $item_url = strpos( $item->url, '#' ) ? substr( $item->url, 0, strpos( $item->url, '#' ) ) : $item->url;
++      if ( $item_url == $current_url )
++        $classes[] = 'active';
++    } else {
++      $classes[] = 'object-'. $item->object;
++      if ( $item->object_id == $wp_query->get_queried_object_id() )
++        $classes[] = 'active';
++    }
+ 
+     // @todo add classes for parent/child relationships
+ 

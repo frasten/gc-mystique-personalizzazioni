@@ -1,0 +1,11 @@
+--- lib/core.php	2010-05-06 15:15:05.279553617 +0200
++++ lib/core.php	2010-05-06 15:15:29.716784877 +0200
+@@ -603,7 +603,7 @@
+      </div>
+ 
+      <div class="post-info clear-block <?php if ($post_thumb) echo 'with-thumbs' ?>">
+-      <p class="author alignleft"><?php printf(__('Posted by %1$s in %2$s','mystique'),'<a href="'. get_author_posts_url(get_the_author_meta('ID')) .'" title="'. sprintf(__("Posts by %s","mystique"), attribute_escape(get_the_author())).' ">'. get_the_author() .'</a>', $category_link);
++      <p class="author alignleft"><?php printf( 'Pubblicato in %1$s', $category_link );
+         ?>
+       <?php if(function_exists('the_views')): ?><span class="postviews">| <?php the_views(); ?></span><?php endif; ?>
+       <?php edit_post_link(__('Edit','mystique'),' | '); ?>

@@ -1,0 +1,11 @@
+--- lib/core.php	2010-05-06 15:13:42.620554146 +0200
++++ lib/core.php	2010-05-06 15:14:25.848101088 +0200
+@@ -599,7 +599,7 @@
+ 
+    <?php if($post_settings['post_info'] && !get_post_meta($post->ID, 'asides', true)): ?>
+      <div class="post-date">
+-       <p class="day"><?php the_time(__('M jS','mystique')); ?></p>
++       <p class="day">Scritto il <?php the_time(__('M jS','mystique')); ?></p>
+      </div>
+ 
+      <div class="post-info clear-block <?php if ($post_thumb) echo 'with-thumbs' ?>">

@@ -1,0 +1,11 @@
+--- lib/core.php	2010-05-06 15:05:37.039553559 +0200
++++ lib/core.php	2010-05-06 15:06:03.983555735 +0200
+@@ -256,7 +256,7 @@
+        elseif($navtype=='pages'):
+          mystique_list_pages(array('exclude' => get_mystique_option('exclude_pages'), 'sort_column' => 'menu_order'));
+        else:
+-         mystique_list_menu(array('slug' => trim($navtype, 'menu-')));
++         mystique_list_menu(array('slug' => substr($navtype, 5)));
+        endif;
+ 
+        do_action('mystique_navigation'); ?>
