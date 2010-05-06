@@ -151,6 +151,9 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 
 
 
+/* Risultati ricerca */
+.search h1.title {font-size: 200%}
+.search .title .error {color: #080}
 
 
 /* Extra navigation icons */
