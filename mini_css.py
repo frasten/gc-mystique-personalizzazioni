@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Da http://stackoverflow.com/questions/222581/python-script-for-minifying-css 
+
 import sys, re
 
 #css = open( sys.argv[1] , 'r' ).read()
