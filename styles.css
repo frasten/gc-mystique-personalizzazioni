@@ -170,3 +170,8 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 .sexy-bookmarks {margin: auto 20px !important;}
 
 body {background: url(body_sfondo.jpg) repeat scroll transparent;}
+
+/* Data di scrittura del post */
+.post-info{background-image:url(info-bar.png)}
+.post-date{text-transform:none;background-image: url(info-bar.png)}
+.post-date p.day{background-image:url(info-bar.png);color: #999}
