@@ -7,15 +7,17 @@
  * successivamente come ordine di lettura nei css.
  * Non lo sapevo proprio.
  * */
- 
- 
- 
+
+
+/* Titolo principale */
 #site-title #logo a, #site-title #logo a:hover {
 	color: #080;
 }
 
+/* Separiamo un pochino il contenuto vero e proprio dal resto */
 #main-inside{padding-top: 30px}
 
+/* Navigazione post precedente/successivo */
 .single-navigation div {color: #080}
 .single-navigation a {color: #888}
 .single-navigation a:href {color: #080}
