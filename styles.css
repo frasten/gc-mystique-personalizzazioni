@@ -140,3 +140,24 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 #site-title p.headline{color:#44a1fb;}
 .tag-cloud a:hover,.block-widget_tag_cloud a:hover{background-color:#44a1fb;}
 */
+
+
+
+/* Extra navigation icons */
+#header p.nav-extra {top:-46px;height:54px;}
+#header a.nav-extra {height:60px;}
+
+#header a.nav-extra.rss{background:url("mystique_icons/nav-rss.png") no-repeat scroll right top transparent;}
+#header a.twitter{background:url("mystique_icons/nav-twitter.png") no-repeat scroll right top transparent;}
+#header a.myspace{background:url("mystique_icons/nav-myspace.png") no-repeat scroll right top transparent;}
+#header a.linkedin{background:url("mystique_icons/nav-linkedin.png") no-repeat scroll right top transparent;}
+#header a.facebook{background:url("mystique_icons/nav-facebook.png") no-repeat scroll right top transparent;}
+#header a.blogger{background:url("mystique_icons/nav-blogger.png") no-repeat scroll right top transparent;}
+#header a.email{background:url("mystique_icons/nav-email.png") no-repeat scroll right top transparent;}
+#header a.googlewave{background:url("mystique_icons/nav-googlewave.png") no-repeat scroll right top transparent;}
+#header a.googlebuzz{background:url("mystique_icons/nav-googlebuzz.png") no-repeat scroll right top transparent;}
+#header a.youtube{background:url("mystique_icons/nav-youtube.png") no-repeat scroll right top transparent;}
+
+
+/* Sexy Bookmarks */
+.sexy-bookmarks {margin: auto 20px !important;}
