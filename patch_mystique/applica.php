@@ -49,6 +49,11 @@ $muoio = false;
 $file_patchati = array();
 foreach ($lista as $patch) {
 	if (!$patch) continue; // Scarto eventuali linee vuote
+
+	if (! is_file(DIR_PATCHES . $patch)) {
+		echo GIALLO . "Patch $patch mancante." . COL_DEFAULT . "\n";
+		continue;
+	}
 	echo "Applico $patch... ";
 	unset($output);
 	unset($return);
