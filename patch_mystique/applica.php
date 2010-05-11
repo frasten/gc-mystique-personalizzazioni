@@ -77,7 +77,17 @@ foreach ($lista as $patch) {
 }
 
 
-
+if ( is_dir( $dir = DIR_PATCHES . 'sostituisci' ) ) {
+	$files = `cd $dir; find -type f`;
+	$files = explode("\n", $files);
+	$files = array_filter($files); // Elimino le righe vuote
+	foreach ($files as $f) {
+		$f = substr($f, 2);
+		copy("$dir/$f", DIR_MYSTIQUE . $f);
+		$file_patchati[] = $f;
+	}
+	$file_patchati = array_unique($file_patchati);
+}
 
 function upload() {
 	global $muoio, $file_patchati, $cur_dir, $argv;
