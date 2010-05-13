@@ -34,10 +34,23 @@ function mystique_custom_nav_icons($nav_extra)
 }
 
 
+function mystique_imposta_facebook($content) {
+	if ( ! function_exists('get_sfc_like_button') ) return $content;
+
+	// is_page() is_home() is_feed() is_single()
+	if (/*is_single() || */is_page() ) return $content;
+
+	$button = get_sfc_like_button('show_faces=false&layout=button_count');
+	$content = $content . $button;
+	return $content;
+}
+
 
 add_action( 'template_redirect', 'mystique_stili_personalizzati' );
 
 // 20 perche' voglio essere alla fine per resettargli le impostazioni.
 add_action('mystique_navigation_extra', 'mystique_custom_nav_icons', 20);
+
+add_filter('the_content', 'mystique_imposta_facebook');
 
 ?>
