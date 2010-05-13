@@ -46,6 +46,27 @@ function mystique_imposta_facebook($content) {
 }
 
 
+function grandicarnivori_partners() {
+	$plugin_url = plugins_url('', __FILE__);
+	$output = <<<EOF
+<div id="barra_bottom">
+	<div id="wrapper_partners">
+		<div id="partners_left">
+			<span>Un progetto di:</span>
+			<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$plugin_url/img/partners/comunitamontana.jpg"/></a>
+			<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$plugin_url/img/partners/legambiente.jpg"/></a>
+		</div><!-- /partners_left -->
+		<div id="partners_right">
+			<span>Grazie al contributo di:</span>
+			<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$plugin_url/img/partners/cariplo.jpg"/></a>
+			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$plugin_url/img/partners/paspardo.jpg"/></a>
+		</div><!-- /partners_right  -->
+	</div><!-- /wrapper_partners -->
+</div><!-- /barra_bottom -->
+EOF;
+	return $output;
+}
+
 add_action( 'template_redirect', 'mystique_stili_personalizzati' );
 
 // 20 perche' voglio essere alla fine per resettargli le impostazioni.
@@ -53,4 +74,5 @@ add_action('mystique_navigation_extra', 'mystique_custom_nav_icons', 20);
 
 add_filter('the_content', 'mystique_imposta_facebook');
 
+add_shortcode('gc_partners', 'grandicarnivori_partners');
 ?>

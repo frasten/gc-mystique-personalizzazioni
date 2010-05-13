@@ -175,3 +175,38 @@ body {background: url(body_sfondo.jpg) repeat scroll transparent;}
 .post-info{background-image:url(info-bar.png)}
 .post-date{text-transform:none;background-image: url(info-bar.png)}
 .post-date p.day{background-image:url(info-bar.png);color: #999}
+
+
+
+/* Partners a pie' di pagina */
+#barra_bottom {
+	float: left;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 5px;
+	color: #666;
+	padding-top: 20px;
+}
+#wrapper_partners {
+	width:870px;
+	margin: 0 auto;
+}
+#wrapper_partners span {
+	display: block;
+	margin-bottom: 8px;
+}
+#wrapper_partners a {
+	margin: auto 5px;
+}
+#partners_left {
+	float: left;
+}
+#partners_right {
+	float: right;
+}
+.partner img {
+	height: 60px;
+	/* border: 2px solid #157716; */
+	margin-left: 3px;
+	margin-right: 3px;
+}
