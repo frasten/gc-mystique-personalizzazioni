@@ -11,7 +11,7 @@ License: GPL3
 
 
 function mystique_stili_personalizzati() {
-	wp_enqueue_style( 'my-mystique', plugins_url('styles.css?', __FILE__) );
+	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' );
 }
 
 
@@ -47,7 +47,7 @@ function mystique_imposta_facebook($content) {
 
 
 function grandicarnivori_partners() {
-	$plugin_url = plugins_url('', __FILE__);
+	$plugin_url = GRANDICARNIVORI_PLUGIN_URL;
 	$output = <<<EOF
 <div id="barra_bottom">
 	<div id="wrapper_partners">
@@ -65,6 +65,13 @@ function grandicarnivori_partners() {
 </div><!-- /barra_bottom -->
 EOF;
 	return $output;
+}
+
+/* Costante per l'url, in modo da funzionare sia in locale che in remoto
+ * (in locale ho un link simbolico */
+if ( ! defined('GRANDICARNIVORI_PLUGIN_URL') ) {
+	$dir = basename(dirname(__FILE__));
+	define( 'GRANDICARNIVORI_PLUGIN_URL', WP_PLUGIN_URL . "/$dir");
 }
 
 add_action( 'template_redirect', 'mystique_stili_personalizzati' );
