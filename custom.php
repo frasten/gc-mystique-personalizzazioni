@@ -50,6 +50,7 @@ function grandicarnivori_partners_top() {
 	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
 	<div id="partners_top">
+		QUI CI SARA' UNO SFONDO BIANCO
 		<span>Un progetto di:</span>
 		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
 		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
@@ -74,7 +75,7 @@ EOF;
 
 // Elimino il logo sopra.
 function grandicarnivori_logo() {
-	return '';
+	return 'QUI CI SARA\' IL LOGO';
 }
 
 
