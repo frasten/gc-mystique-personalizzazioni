@@ -47,19 +47,19 @@ function mystique_imposta_facebook($content) {
 
 
 function grandicarnivori_partners() {
-	$plugin_url = GRANDICARNIVORI_PLUGIN_URL;
+	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
 <div id="barra_bottom">
 	<div id="wrapper_partners">
 		<div id="partners_left">
 			<span>Un progetto di:</span>
-			<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$plugin_url/img/partners/comunitamontana.jpg"/></a>
-			<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$plugin_url/img/partners/legambiente.jpg"/></a>
+			<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
+			<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
 		</div><!-- /partners_left -->
 		<div id="partners_right">
 			<span>Grazie al contributo di:</span>
-			<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$plugin_url/img/partners/cariplo.jpg"/></a>
-			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$plugin_url/img/partners/paspardo.jpg"/></a>
+			<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a>
+			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg"/></a>
 		</div><!-- /partners_right  -->
 	</div><!-- /wrapper_partners -->
 </div><!-- /barra_bottom -->
