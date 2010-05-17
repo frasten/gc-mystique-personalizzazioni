@@ -210,3 +210,8 @@ body {background: url(body_sfondo.jpg) repeat scroll transparent;}
 	margin-left: 3px;
 	margin-right: 3px;
 }
+
+/* PER LA STAMPA */
+@media print {
+ #sidebar, #footer, .post-tags {display:none;}
+}
