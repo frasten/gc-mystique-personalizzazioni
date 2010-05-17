@@ -46,16 +46,21 @@ function mystique_imposta_facebook($content) {
 }
 
 
-function grandicarnivori_partners() {
+function grandicarnivori_partners_top() {
 	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
+	<div id="partners_top">
+		<span>Un progetto di:</span>
+		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
+		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
+	</div><!-- /partners_top -->
+EOF;
+
+/*
+
 <div id="barra_bottom">
 	<div id="wrapper_partners">
-		<div id="partners_left">
-			<span>Un progetto di:</span>
-			<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
-			<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
-		</div><!-- /partners_left -->
+		
 		<div id="partners_right">
 			<span>Grazie al contributo di:</span>
 			<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a>
@@ -63,9 +68,15 @@ function grandicarnivori_partners() {
 		</div><!-- /partners_right  -->
 	</div><!-- /wrapper_partners -->
 </div><!-- /barra_bottom -->
-EOF;
-	return $output;
+*/
+	echo $output;
 }
+
+// Elimino il logo sopra.
+function grandicarnivori_logo() {
+	return '';
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -81,5 +92,7 @@ add_action('mystique_navigation_extra', 'mystique_custom_nav_icons', 20);
 
 add_filter('the_content', 'mystique_imposta_facebook');
 
-add_shortcode('gc_partners', 'grandicarnivori_partners');
+add_action('grandicarnivori_header', 'grandicarnivori_partners_top');
+
+add_filter('mystique_logo', 'grandicarnivori_logo');
 ?>

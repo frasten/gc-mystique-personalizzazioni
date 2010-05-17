@@ -178,31 +178,21 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 
 
 
-/* Partners a pie' di pagina */
-#barra_bottom {
-	float: left;
-	width: 100%;
+/* Partners in alto a destra */
+#partners_top {
+	float: right;
 	text-align: center;
-	padding-bottom: 5px;
-	color: #666;
-	padding-top: 20px;
+	margin-bottom: 30px;
+	margin-top: 10px;
 }
-#wrapper_partners {
-	width:870px;
-	margin: 0 auto;
-}
-#wrapper_partners span {
+
+#partners_top span {
 	display: block;
 	margin-bottom: 8px;
 }
-#wrapper_partners a {
+
+#partners_top a {
 	margin: auto 5px;
-}
-#partners_left {
-	float: left;
-}
-#partners_right {
-	float: right;
 }
 .partner img {
 	height: 60px;
@@ -210,6 +200,8 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 	margin-left: 3px;
 	margin-right: 3px;
 }
+
+
 
 /* PER LA STAMPA */
 @media print {

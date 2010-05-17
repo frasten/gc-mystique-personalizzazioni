@@ -1,2 +1,4 @@
 data_post.patch
 rimuovo_autore.patch
+action_topright.patch
+rimuovi_descrizione_header.patch

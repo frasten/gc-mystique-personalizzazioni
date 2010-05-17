@@ -1,0 +1,10 @@
+--- header.php	2010-05-17 11:40:23.685520264 +0200
++++ header.php	2010-05-17 11:40:34.084519292 +0200
+@@ -30,7 +30,6 @@
+       <div id="site-title" class="clear-block">
+ 
+         <?php mystique_logo(); ?>
+-        <?php if(get_bloginfo('description')): ?><p class="headline"><?php bloginfo('description'); ?></p><?php endif; ?>
+ 
+         <?php do_action('mystique_header'); ?>
+ 
