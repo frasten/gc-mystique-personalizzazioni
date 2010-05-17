@@ -51,7 +51,7 @@ ul#navigation li.active:hover a{background-color:white;}
 ul#navigation li.active a,
 ul#navigation li.active-parent a,
 ul#navigation li.active-ancestor a
-{background:#080 url(nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;}
+{background:#080 url(img/nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;}
 
 /* submenus */
 ul#navigation ul{border-color: #7b7;background-color: white}
@@ -106,37 +106,37 @@ ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 
 /* Immaginette personalizzate */
 
 /* freccina laterale negli elenchi puntati nella sidebar */
-.block li{background-image:url(icons.png)}
+.block li{background-image:url(img/icons.png)}
 /* iconcina del fumetto utilizzata quando ci sono commenti in un post */
-.post-info p.comments a.comments{background-image:url(icons.png)}
+.post-info p.comments a.comments{background-image:url(img/icons.png)}
 /* Iconcina dei tags */
-.post-tags{background-image:url(icons.png)}
+.post-tags{background-image:url(img/icons.png)}
 /* freccina laterale negli elenchi puntati nella sidebar ? */
-.box ul.menuList li a span.entry{background-image:url(icons.png)}
+.box ul.menuList li a span.entry{background-image:url(img/icons.png)}
 
 /* Freccetta sotto la voce corrente nel menu in alto */
 ul#navigation li.active a span.pointer,
 ul#navigation li.active-parent a span.pointer,
 ul#navigation li.active-ancestor a span.pointer
-{background-image:url(nav-pointer.png)}
+{background-image:url(img/nav-pointer.png)}
 
 /* Pulsante Leggi... nei featured posts sulla home */
-#featured-content a.readmore{background-image:url(readmore.png)}
+#featured-content a.readmore{background-image:url(img/readmore.png)}
 
 /* Ombra sotto il menu superiore */
-.shadow-left{background-image:url(shadow.png);}
-.shadow-right{background-image:url(shadow.png);}
+.shadow-left{background-image:url(img/shadow.png);}
+.shadow-right{background-image:url(img/shadow.png);}
 
 
 
 .block h3.title,.block h3.title span,.block .block-div,
-.block .block-div-arrow{background-image:url(block-title.png)}
-li.comment .comment-head{background-image:url(comment-head.png);}
+.block .block-div-arrow{background-image:url(img/block-title.png)}
+li.comment .comment-head{background-image:url(img/comment-head.png);}
 li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostauthor{background-color:#32ba2f;}
-.search-form #searchfield,.search-form input.submit{background-image:url(search.png);}
-.tabs-wrap{background-image:url(tabs-bg.png);}
-.tabs li{background-image:url(tabs-c.png);}
-.tabs li a{background-image:url(tabs.png);}
+.search-form #searchfield,.search-form input.submit{background-image:url(img/search.png);}
+.tabs-wrap{background-image:url(img/tabs-bg.png);}
+.tabs li{background-image:url(img/tabs-c.png);}
+.tabs li a{background-image:url(img/tabs.png);}
 
 
 /* es. archivio di >> maggio << */
@@ -160,21 +160,21 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 #header p.nav-extra {top:-46px;height:54px;}
 #header a.nav-extra {height:60px;}
 
-#header a.nav-extra.rss{background:url("mystique_icons/nav-rss.png") no-repeat scroll right top transparent;}
-#header a.facebook{background:url("mystique_icons/nav-facebook.png") no-repeat scroll right top transparent;}
-#header a.email{background:url("mystique_icons/nav-email.png") no-repeat scroll right top transparent;}
-#header a.youtube{background:url("mystique_icons/nav-youtube.png") no-repeat scroll right top transparent;}
+#header a.nav-extra.rss{background:url(mystique_icons/nav-rss.png) no-repeat scroll right top transparent;}
+#header a.facebook{background:url(mystique_icons/nav-facebook.png) no-repeat scroll right top transparent;}
+#header a.email{background:url(mystique_icons/nav-email.png) no-repeat scroll right top transparent;}
+#header a.youtube{background:url(mystique_icons/nav-youtube.png) no-repeat scroll right top transparent;}
 
 
 /* Sexy Bookmarks */
 .sexy-bookmarks {margin: auto 20px !important;}
 
-body {background: url(body_sfondo.jpg) repeat scroll transparent;}
+body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 
 /* Data di scrittura del post */
-.post-info{background-image:url(info-bar.png)}
-.post-date{text-transform:none;background-image: url(info-bar.png)}
-.post-date p.day{background-image:url(info-bar.png);color: #999}
+.post-info{background-image:url(img/info-bar.png)}
+.post-date{text-transform:none;background-image: url(img/info-bar.png)}
+.post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
 
 
