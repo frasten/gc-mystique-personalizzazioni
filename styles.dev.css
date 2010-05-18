@@ -26,6 +26,9 @@
 a:hover {color: #080;}
 .post-info a:hover {color: #080}
 .post-meta a:hover {color: #080}
+li.comment .controls a:hover{background-color:#070; border-top-color:#5b5; color:#fff;}
+
+
 
 /* Titolo dei posts */
 h2.title {font-size: 100%;margin-bottom: 5px;}
