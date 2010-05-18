@@ -28,8 +28,12 @@ a:hover {color: #080;}
 .post-meta a:hover {color: #080}
 
 /* Titolo dei posts */
-h2.title a{color:#080;}
+h2.title {font-size: 100%;margin-bottom: 5px;}
+h2.title a{color:#080;font-size: 130%;font-family: Cambria, Georgia, 'Times New Roman', serif;}
 h2.title a:hover{color:#2a2}
+
+/* Titolo su post singolo */
+h1.title {font-size: 200%;font-family: Cambria, Georgia, 'Times New Roman', serif;border-bottom: 1px solid #c3ffc3;margin-bottom: 20px}
 
 h3.title a{color:#080;}
 h3.title a:hover{color:#2a2}
