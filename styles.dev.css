@@ -29,6 +29,12 @@ a:hover {color: #080;}
 li.comment .controls a:hover{background-color:#070; border-top-color:#5b5; color:#fff;}
 
 
+/* Elenchi puntati nel contenuto */
+.post-content ul{list-style-type:none;margin:0 0 .4em 0;}
+.post-content li{background:transparent url(img/icons.png) no-repeat 4px /*-816px*/-1005px;margin:0;padding:0 0 0 18px;}
+/* Non lo faccio su mouseover.    .post-content li:hover{background-position:4px -1005px;}*/
+.post-content li li{margin-left:.4em;}
+
 
 /* Titolo dei posts */
 h2.title {font-size: 100%;margin-bottom: 5px;}
