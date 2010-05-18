@@ -9,6 +9,8 @@ Author URI: http://polpoinodroidi.com
 License: GPL3
 */
 
+include 'faq_widget.php';
+
 
 function mystique_stili_personalizzati() {
 	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' );
