@@ -205,5 +205,6 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 
 /* PER LA STAMPA */
 @media print {
- #sidebar, #footer, .post-tags {display:none;}
+ #sidebar, #footer, .post-tags, .fb-like {display:none;}
+ .post-content {font-family: "Times New Roman", serif}
 }
