@@ -42,6 +42,10 @@ function widget( $args, $instance ) {
 			$menu_slug = $instance['menu_generale'];
 
 		$nav_menu = wp_get_nav_menu_object( $menu_slug );
+		if ( !$nav_menu ) {
+			echo "Menu non trovato";
+			return;
+		}
 		wp_nav_menu( array( 'menu' => $nav_menu ) );
 
 
