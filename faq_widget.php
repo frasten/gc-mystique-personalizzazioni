@@ -30,13 +30,16 @@ function widget( $args, $instance ) {
 			echo $before_title . $title . $after_title;
 		echo "QUA CI VANNO LE DOMANDE, a seconda dell'utente.";
 
-		$tipo = isset($_SESSION['tipologia_utente']) ? $_SESSION['tipologia_utente'] : false;
-		$menu_slug = '';
-		if ( $tipo == 'pastore' )
+		$opt = get_option('gc_id_pagine_tipologie');
+		$ids = explode(',', $opt);
+
+
+		/* Scelgo la lista di domande da mostrare, a seconda di dove mi trovo.*/
+		if ($ids[0] && $this->figlio_di($ids[0])) // pastori
 			$menu_slug = $instance['menu_pastori'];
-		else if ( $tipo == 'cacciatore' )
+		else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
 			$menu_slug = $instance['menu_cacciatori'];
-		else if ( $tipo == 'turista' )
+		else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
 			$menu_slug = $instance['menu_turisti'];
 		else
 			$menu_slug = $instance['menu_generale'];
@@ -54,7 +57,27 @@ function widget( $args, $instance ) {
 	}
 
 
+	/* Funzione ricorsiva per scoprire se una pagina e' figlia di un'altra.*/
+	function figlio_di($id_cercato, $id = 0) {
+		if ($id_parent == $id) return true;
+		if ($id == 0) $id = $post->ID; // prima chiamata
 
+		$id_parent = get_parent( $id );
+		if ($id_parent == 0) return false;
+		if ($id_parent == $id_cercato) return true;
+		return figlio_di($id_cercato, $id_parent);
+	}
+
+
+	function get_parent($id) {
+		if ($id == 0) return 0;
+		global $wpdb;
+		$parent = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE ID = %d AND post_type = 'page' LIMIT 1", $id ) );
+		if ( is_int( $parent->ID ) )
+			return $parent->ID;
+		else
+			return 0;
+	}
 
 
 	/* Form  per la configurazione del widget */
