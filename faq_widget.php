@@ -33,15 +33,16 @@ function widget( $args, $instance ) {
 		$ids = explode(',', $opt);
 
 
-		/* Scelgo la lista di domande da mostrare, a seconda di dove mi trovo.*/
-		if ($ids[0] && $this->figlio_di($ids[0])) // pastori
-			$menu_slug = $instance['menu_pastori'];
-		else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
-			$menu_slug = $instance['menu_cacciatori'];
-		else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
-			$menu_slug = $instance['menu_turisti'];
-		else
-			$menu_slug = $instance['menu_generale'];
+		$menu_slug = $instance['menu_generale'];
+		if ( is_page() ) {
+			/* Scelgo la lista di domande da mostrare, a seconda di dove mi trovo.*/
+			if ($ids[0] && $this->figlio_di($ids[0])) // pastori
+				$menu_slug = $instance['menu_pastori'];
+			else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
+				$menu_slug = $instance['menu_cacciatori'];
+			else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
+				$menu_slug = $instance['menu_turisti'];
+		}
 
 		$nav_menu = wp_get_nav_menu_object( $menu_slug );
 		if ( !$nav_menu ) {
