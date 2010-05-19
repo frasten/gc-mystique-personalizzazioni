@@ -80,6 +80,30 @@ function grandicarnivori_logo() {
 	return 'QUI CI SARA\' IL LOGO';
 }
 
+function grandicarnivori_tipo_utente() {
+	global $wp_query;
+	// Sulla home resetto il tipo di utente
+	if (is_home()) {
+		unset($_SESSION['tipologia_utente']);
+	}
+	else if (is_page()) {
+		$opt = get_option('gc_id_pagine_tipologie');
+		$ids = explode(',', $opt);
+
+		switch($wp_query->post->ID) {
+			case $ids[0]: // allevatori
+				$_SESSION['tipologia_utente'] = 'pastore';
+				break;
+			case $ids[1]: // pastori
+				$_SESSION['tipologia_utente'] = 'allevatore';
+				break;
+			case $ids[2]: // turisti
+				$_SESSION['tipologia_utente'] = 'turista';
+				break;
+		}
+	}
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -98,4 +122,6 @@ add_filter('the_content', 'mystique_imposta_facebook');
 add_action('grandicarnivori_header', 'grandicarnivori_partners_top');
 
 add_filter('mystique_logo', 'grandicarnivori_logo');
+
+add_action('template_redirect', 'grandicarnivori_tipo_utente');
 ?>

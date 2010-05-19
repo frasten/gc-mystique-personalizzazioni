@@ -121,6 +121,13 @@ function widget( $args, $instance ) {
 			</select>
 		</p>
 
+
+
+<!-- ID pagine tipologie utenti -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, allevatori, turisti</strong>. Separati da virgola.</label><br />
+			<input type="text" id="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>" name="<?php echo $this->get_field_name( 'id_pagine_tipologie' ); ?>" value="<?php echo $instance['id_pagine_tipologie']?>">
+		</p>
 <?php
 	}
 
@@ -137,6 +144,11 @@ function widget( $args, $instance ) {
 		$instance['menu_allevatori'] = $new_instance['menu_allevatori'];
 		$instance['menu_pastori'] = $new_instance['menu_pastori'];
 		$instance['menu_turisti'] = $new_instance['menu_turisti'];
+
+
+		$instance['id_pagine_tipologie'] = preg_replace('/[^0-9,]/', '', $new_instance['id_pagine_tipologie']);
+		update_option('gc_id_pagine_tipologie', $instance['id_pagine_tipologie']);
+
 		return $instance;
 	}
 }
