@@ -34,8 +34,8 @@ function widget( $args, $instance ) {
 		$menu_slug = '';
 		if ( $tipo == 'pastore' )
 			$menu_slug = $instance['menu_pastori'];
-		else if ( $tipo == 'allevatore' )
-			$menu_slug = $instance['menu_allevatori'];
+		else if ( $tipo == 'cacciatore' )
+			$menu_slug = $instance['menu_cacciatori'];
 		else if ( $tipo == 'turista' )
 			$menu_slug = $instance['menu_turisti'];
 		else
@@ -64,7 +64,7 @@ function widget( $args, $instance ) {
 		  'title' => '',
 		  'menu_generale' => '',
 		  'menu_pastori' => '',
-		  'menu_allevatori' => '',
+		  'menu_cacciatori' => '',
 		  'menu_turisti' => '',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -98,13 +98,13 @@ function widget( $args, $instance ) {
 		</p>
 
 
-		<!-- FAQ Allevatori -->
+		<!-- FAQ Cacciatori -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'menu_allevatori' ); ?>">Menu per le domande per gli allevatori:</label><br />
-			<select id="<?php echo $this->get_field_id( 'menu_allevatori' ); ?>" name="<?php echo $this->get_field_name( 'menu_allevatori' ); ?>">
+			<label for="<?php echo $this->get_field_id( 'menu_cacciatori' ); ?>">Menu per le domande per gli cacciatori:</label><br />
+			<select id="<?php echo $this->get_field_id( 'menu_cacciatori' ); ?>" name="<?php echo $this->get_field_name( 'menu_cacciatori' ); ?>">
 			<?php
 			foreach(wp_get_nav_menus() as $menu)
-				echo '<option value="'.$menu->slug.'" '.selected($menu->slug, $instance['menu_allevatori'], false).'>'.$menu->name.'</option>';
+				echo '<option value="'.$menu->slug.'" '.selected($menu->slug, $instance['menu_cacciatori'], false).'>'.$menu->name.'</option>';
 			?>
 			</select>
 		</p>
@@ -125,7 +125,7 @@ function widget( $args, $instance ) {
 
 <!-- ID pagine tipologie utenti -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, allevatori, turisti</strong>. Separati da virgola.</label><br />
+			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, cacciatori, turisti</strong>. Separati da virgola.</label><br />
 			<input type="text" id="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>" name="<?php echo $this->get_field_name( 'id_pagine_tipologie' ); ?>" value="<?php echo $instance['id_pagine_tipologie']?>">
 		</p>
 <?php
@@ -141,7 +141,7 @@ function widget( $args, $instance ) {
 		$instance['title'] = strip_tags( $new_instance['title'] );
 
 		$instance['menu_generale'] = $new_instance['menu_generale'];
-		$instance['menu_allevatori'] = $new_instance['menu_allevatori'];
+		$instance['menu_cacciatori'] = $new_instance['menu_cacciatori'];
 		$instance['menu_pastori'] = $new_instance['menu_pastori'];
 		$instance['menu_turisti'] = $new_instance['menu_turisti'];
 

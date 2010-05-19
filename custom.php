@@ -94,8 +94,8 @@ function grandicarnivori_tipo_utente() {
 			case $ids[0]: // allevatori
 				$_SESSION['tipologia_utente'] = 'pastore';
 				break;
-			case $ids[1]: // pastori
-				$_SESSION['tipologia_utente'] = 'allevatore';
+			case $ids[1]: // cacciatori
+				$_SESSION['tipologia_utente'] = 'cacciatore';
 				break;
 			case $ids[2]: // turisti
 				$_SESSION['tipologia_utente'] = 'turista';
