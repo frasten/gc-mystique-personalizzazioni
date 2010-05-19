@@ -28,7 +28,6 @@ function widget( $args, $instance ) {
 		/* Titolo del widget (before e after definiti dal tema). */
 		if ( $title )
 			echo $before_title . $title . $after_title;
-		echo "QUA CI VANNO LE DOMANDE, a seconda dell'utente.";
 
 		$opt = get_option('gc_id_pagine_tipologie');
 		$ids = explode(',', $opt);
