@@ -59,10 +59,11 @@ function widget( $args, $instance ) {
 
 	/* Funzione ricorsiva per scoprire se una pagina e' figlia di un'altra.*/
 	function figlio_di($id_cercato, $id = 0) {
-		if ($id_parent == $id) return true;
+		global $post;
 		if ($id == 0) $id = $post->ID; // prima chiamata
+		if ($id_cercato == $id) return true;
 
-		$id_parent = get_parent( $id );
+		$id_parent = $this->get_parent( $id );
 		if ($id_parent == 0) return false;
 		if ($id_parent == $id_cercato) return true;
 		return figlio_di($id_cercato, $id_parent);
@@ -70,8 +71,9 @@ function widget( $args, $instance ) {
 
 
 	function get_parent($id) {
-		if ($id == 0) return 0;
 		global $wpdb;
+		if ($id == 0) return 0;
+
 		$parent = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE ID = %d AND post_type = 'page' LIMIT 1", $id ) );
 		if ( is_int( $parent->ID ) )
 			return $parent->ID;
