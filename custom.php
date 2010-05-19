@@ -80,6 +80,19 @@ function grandicarnivori_logo() {
 	return 'QUI CI SARA\' IL LOGO';
 }
 
+// Links alle immagini dei partners, nella sidebar.
+function grandicarnivori_partners_widget() {
+	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
+	$output = <<<EOF
+	<div id="partners_widget">
+		<span>Grazie al contributo di:</span>
+		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a><br />
+			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg"/> Comune di Paspardo</a>
+	</div><!-- /partners_widget -->
+EOF;
+	return $output;
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -98,4 +111,10 @@ add_filter('the_content', 'mystique_imposta_facebook');
 add_action('grandicarnivori_header', 'grandicarnivori_partners_top');
 
 add_filter('mystique_logo', 'grandicarnivori_logo');
+
+// Richiesto per abilitare gli shortcodes nel widget HTML libero.
+add_filter('widget_text', 'do_shortcode' );
+
+add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
+
 ?>

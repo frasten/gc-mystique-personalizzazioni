@@ -214,6 +214,15 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 	margin-right: 3px;
 }
 
+/* Partners laterali */
+#partners_widget img {
+	vertical-align: middle;
+}
+
+#partners_widget a {
+	text-decoration: none;
+}
+
 
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
