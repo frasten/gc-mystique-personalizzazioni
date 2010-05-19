@@ -22,14 +22,6 @@ function widget( $args, $instance ) {
 		/* User-selected settings. */
 		$title = apply_filters('widget_title', $instance['title'] );
 
-		$FeedBurner = $instance['FeedBurner'];
-
-		$show_subscribe_by_feedBurner = isset( $instance['show_subscribe_by_feedBurner']) ? $instance['show_subscribe_by_feedBurner'] : false;
-
-		$FeedCount = $instance['FeedCount'];
-
-		$show_FeedCount = isset( $instance['show_FeedCount'] ) ? $instance['show_FeedCount'] : false;
-
 		/* Before widget (definito dal tema). */
 		echo $before_widget;
 
@@ -37,6 +29,22 @@ function widget( $args, $instance ) {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 		echo "QUA CI VANNO LE DOMANDE, a seconda dell'utente.";
+
+		$tipo = isset($_SESSION['tipologia_utente']) ? $_SESSION['tipologia_utente'] : false;
+		$menu_slug = '';
+		if ( $tipo == 'pastore' )
+			$menu_slug = $instance['menu_pastori'];
+		else if ( $tipo == 'allevatore' )
+			$menu_slug = $instance['menu_allevatori'];
+		else if ( $tipo == 'turista' )
+			$menu_slug = $instance['menu_turisti'];
+		else
+			$menu_slug = $instance['menu_generale'];
+
+		$nav_menu = wp_get_nav_menu_object( $menu_slug );
+		wp_nav_menu( array( 'menu' => $nav_menu ) );
+
+
 		/* After widget (definito dal tema). */
 		echo $after_widget;
 	}
