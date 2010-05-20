@@ -210,11 +210,14 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 #partners_top a {
 	margin: auto 5px;
 }
-.partner img {
-	height: 60px;
+#partners_top .partner img {
 	border: 1px solid #aea;
 	padding: 4px;
 	background-color: white;
+}
+
+.partner img {
+	height: 60px;
 	margin-left: 3px;
 	margin-right: 3px;
 }
