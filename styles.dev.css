@@ -39,6 +39,7 @@ li.comment .controls a:hover{background-color:#070; border-top-color:#5b5; color
 .post-content li li{margin-left:.4em;}
 
 
+
 /* Titolo dei posts */
 h2.title {font-size: 100%;margin-bottom: 5px;}
 h2.title a{color:#080;font-size: 130%;font-family: Cambria, Georgia, 'Times New Roman', serif;}
@@ -160,11 +161,6 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 
 
 
-/*
-#site-title p.headline{color:#44a1fb;}
-.tag-cloud a:hover,.block-widget_tag_cloud a:hover{background-color:#44a1fb;}
-*/
-
 
 
 /* Risultati ricerca */
@@ -192,6 +188,20 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 .post-date{text-transform:none;background-image: url(img/info-bar.png)}
 .post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
+
+/* Icona nei link che puntano ai vari tipi di file */
+a[href $='.pdf'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_pdf.png) no-repeat center right;
+}
+a[href $='.doc'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_doc.png) no-repeat center right;
+}
+a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_zip.png) no-repeat center right;
+}
 
 
 /* Partners in alto a destra */
