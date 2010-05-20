@@ -12,6 +12,13 @@ License: GPL3
 include 'faq_widget.php';
 
 
+function grandicarnivori_init() {
+	$config = get_option('mystique');
+	$config['logo'] = GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png';
+	update_option('mystique', $config);
+}
+
+
 function mystique_stili_personalizzati() {
 	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' );
 }
@@ -52,7 +59,6 @@ function grandicarnivori_partners_top() {
 	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
 	<div id="partners_top">
-		QUI CI SARA' UNO SFONDO BIANCO
 		<span>Un progetto di:</span>
 		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
 		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
@@ -76,12 +82,14 @@ EOF;
 }
 
 // Elimino il logo sopra.
-function grandicarnivori_logo() {
-	$out = '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
-	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";
-	$out .= "<br />Potrebbe andar bene come proposta di logo?";
+function grandicarnivori_logo($logo) {/*
+	$out = "<a href=''>";
+	$out .= '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
+	$out .= "</a>\n";
+	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";*/
+	$out .= "<span class='clear-block'>Potrebbe andar bene come proposta di logo?</span>";
 
-	return $out;
+	return $logo . $out;
 }
 
 // Links alle immagini dei partners, nella sidebar.
@@ -120,5 +128,7 @@ add_filter('mystique_logo', 'grandicarnivori_logo');
 add_filter('widget_text', 'do_shortcode' );
 
 add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
+
+add_action('init', 'grandicarnivori_init');
 
 ?>

@@ -10,9 +10,12 @@
 
 
 /* Titolo principale */
-#site-title #logo a, #site-title #logo a:hover {
-	color: #080;
+#site-title {
+	padding: 1em 0;
 }
+
+body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_top.png) no-repeat 0 0;}
+#header {width: 940px;margin: 0 auto;}
 
 /* Separiamo un pochino il contenuto vero e proprio dal resto */
 #main-inside{padding-top: 30px}
