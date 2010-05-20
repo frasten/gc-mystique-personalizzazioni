@@ -77,7 +77,11 @@ EOF;
 
 // Elimino il logo sopra.
 function grandicarnivori_logo() {
-	return 'QUI CI SARA\' IL LOGO';
+	$out = '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
+	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";
+	$out .= "<br />Potrebbe andar bene come proposta di logo?";
+
+	return $out;
 }
 
 // Links alle immagini dei partners, nella sidebar.
