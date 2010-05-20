@@ -87,7 +87,7 @@ function grandicarnivori_logo($logo) {/*
 	$out .= '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
 	$out .= "</a>\n";
 	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";*/
-	$out .= "<span class='clear-block'>Potrebbe andar bene come proposta di logo?</span>";
+	//$out .= "<span class='clear-block'>Potrebbe andar bene come proposta di logo?</span>";
 
 	return $logo . $out;
 }
