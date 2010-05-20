@@ -189,6 +189,18 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 .post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
 
+.post-content a img {
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 4px;
+	-webkit-box-shadow: 2px 2px 5px #888;
+	-moz-box-shadow: 2px 2px 5px #888;
+	box-shadow: 2px 2px 2px #888;
+}
+
+
 /* Icona nei link che puntano ai vari tipi di file */
 a[href $='.pdf'] {
 	padding-right: 18px;
