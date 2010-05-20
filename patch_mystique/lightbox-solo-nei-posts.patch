@@ -5,7 +5,7 @@
  
      <?php if($mystique_options['lightbox']): // enable fancyBox for any link with rel="lightbox" and on links which references end in image extensions (jpg, gif, png) ?>
 -    jQuery("a[rel='lightbox'], a[href$='.jpg'], a[href$='.jpeg'], a[href$='.gif'], a[href$='.png'], a[href$='.JPG'], a[href$='.JPEG'], a[href$='.GIF'], a[href$='.PNG']").fancyboxlite({
-+    jQuery("a[rel='lightbox'], a[href$='.jpg'], a[href$='.jpeg'], a[href$='.gif'], a[href$='.png'], a[href$='.JPG'], a[href$='.JPEG'], a[href$='.GIF'], a[href$='.PNG']").filter("not:(a[class^=shutterset])").fancyboxlite({
++    jQuery("a[rel='lightbox'], a[href$='.jpg'], a[href$='.jpeg'], a[href$='.gif'], a[href$='.png'], a[href$='.JPG'], a[href$='.JPEG'], a[href$='.GIF'], a[href$='.PNG']").filter("a:not([class^=shutterset])").fancyboxlite({
        'zoomSpeedIn': 333,
        'zoomSpeedOut': 333,
        'zoomSpeedChange': 133,
