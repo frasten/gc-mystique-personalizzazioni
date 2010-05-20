@@ -106,6 +106,11 @@ EOF;
 }
 
 
+function gc_favicon() {
+	echo GRANDICARNIVORI_PLUGIN_URL . '/img/favicon.png';
+}
+
+
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
 if ( ! defined('GRANDICARNIVORI_PLUGIN_URL') ) {
