@@ -1,0 +1,11 @@
+--- header.php	2010-05-20 12:25:12.539603215 +0200
++++ header.php	2010-05-20 12:25:45.379783332 +0200
+@@ -13,7 +13,7 @@
+ <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
+ <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
+ <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+-<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
++<link rel="shortcut icon" href="<?php if (function_exists('gc_favicon')) gc_favicon(); ?>" />
+ 
+ <?php wp_head(); ?>
+ </head>
