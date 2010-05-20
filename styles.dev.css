@@ -231,6 +231,15 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 	text-decoration: none;
 }
 
+/* FAQ laterali */
+.block-gc-faq li a {
+	text-decoration: none;
+	font-size: 120%;
+}
+
+.block-gc-faq li {
+	margin-bottom: 6px;
+}
 
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
