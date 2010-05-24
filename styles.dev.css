@@ -137,7 +137,7 @@ ul#navigation li.active-parent a span.pointer,
 ul#navigation li.active-ancestor a span.pointer
 {background-image:url(img/nav-pointer.png)}
 
-/* Pulsante Leggi... nei featured posts sulla home */
+/* Pulsante Leggi o continua... nei featured posts sulla home */
 #featured-content a.readmore{background-image:url(img/readmore.png)}
 
 /* Ombra sotto il menu superiore */
