@@ -3,3 +3,6 @@
 
 /* Porto l'avviso di browser vecchio davanti al titolo. */
 .crap-browser-warning {z-index: 1000}
+
+/* Elimino l'immagine di sfondo dell'header. E' solo un di piu'. */
+body.fixed .header-wrapper {background-image: none}
