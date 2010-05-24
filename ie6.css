@@ -1,1 +1,5 @@
+/* Elimino completamente i featured posts, il testo si sovrappone. */
 #featured-content {display: none}
+
+/* Porto l'avviso di browser vecchio davanti al titolo. */
+.crap-browser-warning {z-index: 1000}
