@@ -12,3 +12,6 @@ body.fixed .header-wrapper {background-image: none}
 
 /* il link home, se inattivo, su mouseover diventa completamente bianco*/
 #navigation a.home:hover {color: #0a0 !important}
+
+/* Elimino le ombre, si vedono male siccome non supporta le trasparenze PNG */
+.shadow-left, .shadow-right {background: none !important}
