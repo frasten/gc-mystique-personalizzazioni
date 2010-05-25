@@ -1,0 +1,163 @@
+--- lib/core.php.orig	2010-05-25 20:41:16.136542548 +0200
++++ lib/core.php	2010-05-25 22:24:21.240817386 +0200
+@@ -144,21 +144,33 @@
+     global $wp_query;
+     $indent = ($depth) ? str_repeat("\t", $depth) : '';
+     $classes = $value = '';
+-    $classes = array('type-'. $item->type, $item->classes);
++    $classes = array('type-' . $item->type);
++    if ( !empty($item->classes) )
++      $classes = array_merge($classes, explode(' ', $item->classes) );
+ 
+ 
+ 
+-    if ('custom' == $item->object){
+-      $current_url = (is_ssl() ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+-      $item_url = strpos($item->url, '#') ? substr($item->url, 0, strpos($item->url, '#')) : $item->url;
+-      if ($item_url == $current_url) $classes[] = 'active';
+-    } else {
+-      $classes[] = 'object-'.$item->object;
+-      if ($item->object_id == $wp_query->get_queried_object_id())	$classes[] = 'active';
++    if ( 'custom' != $item->type ) {
++      $classes[] = 'object-' . $item->object;
++      $classes[] = 'object-' . $item->type . '-' . $item->object_id;
++      if ( 'post_type' == $item->type && 'page' == $item->object ) {
++        // Back compat classes for pages to match wp_page_menu()
++        $classes[] = 'page_item';
++        $classes[] = 'page-item-' . $item->object_id;
++        if ( !empty($item->classes) ) {
++          if ( in_array('active', $classes) )
++            $classes[] = 'current_page_item';
++          if ( in_array('active-parent', $classes) )
++            $classes[] = 'current_page_parent';
++          if ( in_array('active-ancestor', $classes) )
++            $classes[] = 'current_page_ancestor';
++        }
++      }
++    } elseif ( 'custom' == $item->type && in_array('active', $classes) && in_array('home', $classes) ) {
++      // Back compat for home limk to match wp_page_menu()
++      $classes[] = 'current_page_item';
+     }
+ 
+-    // @todo add classes for parent/child relationships
+-
+     $classes = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
+     $classes = ' class="' . esc_attr($classes) . '"';
+ 
+@@ -173,7 +185,7 @@
+     $item_output .= '<span class="title">' . apply_filters('the_title', $item->title) . '</span>';
+     $item_output .= '<span class="pointer"></span></a>';
+ 
+-    $output .= apply_filters('wp_get_nav_menu_item', $item_output, $args);
++    $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+   }
+ 
+   function end_el(&$output, $item, $depth) {
+@@ -205,6 +217,7 @@
+   $items = '';
+   $sorted_menu_items = array();
+   foreach ((array) $menu_items as $key => $menu_item) $sorted_menu_items[$menu_item->menu_order] = wp_setup_nav_menu_item($menu_item);
++  _mystique_menu_item_classes_by_context( $sorted_menu_items );
+ 
+   $walker = new mystique_MenuWalker();
+   $items .= $walker->walk($sorted_menu_items, 0, array());
+@@ -275,6 +288,92 @@
+   <?php endif;
+ }
+ 
++/**
++ * Add the class property classes for the current frontend context, if applicable.
++ *
++ * @access private
++ * @since 3.0
++ *
++ * @param array $menu_items The current menu item objects to which to add the class property information.
++ */
++function _mystique_menu_item_classes_by_context( &$menu_items = array() ) {
++  global $wp_query;
++
++  $queried_object = $wp_query->get_queried_object();
++  $queried_object_id = (int) $wp_query->queried_object_id;
++
++  $active_object = '';
++  $active_parent_item_ids = array();
++  $active_parent_object_ids = array();
++  $possible_object_parents = array();
++  
++  if ( $wp_query->is_singular && ! empty( $queried_object->post_type ) && ! is_post_type_hierarchical( $queried_object->post_type ) ) {
++    foreach ( (array) get_object_taxonomies( $queried_object->post_type ) as $taxonomy ) {
++      if ( is_taxonomy_hierarchical( $taxonomy ) ) {
++        $terms = wp_get_object_terms( $queried_object_id, $taxonomy, array( 'fields' => 'ids' ) );
++        if ( is_array( $terms ) )
++          $possible_object_parents = array_merge( $possible_object_parents, $terms );
++      }
++    }
++  } elseif ( ! empty( $queried_object->post_type ) && is_post_type_hierarchical( $queried_object->post_type ) ) {
++    _get_post_ancestors( $queried_object );
++  }
++
++  $possible_object_parents = array_filter( $possible_object_parents );
++
++  foreach ( (array) $menu_items as $key => $menu_item ) {
++    // if the menu item corresponds to a taxonomy term for the currently-queried non-hierarchical post object
++    if ( $wp_query->is_singular && 'taxonomy' == $menu_item->type && in_array( $menu_item->object_id, $possible_object_parents ) ) {
++      $active_parent_object_ids[] = (int) $menu_item->object_id;
++      $active_parent_item_ids[] = (int) $menu_item->db_id;
++      $active_object = $queried_object->post_type;
++    
++    // if the menu item corresponds to the currently-queried post or taxonomy object
++    } elseif (
++      $menu_item->object_id == $queried_object_id &&
++      ( 
++        ( 'post_type' == $menu_item->type && $wp_query->is_singular ) ||
++        ( 'taxonomy' == $menu_item->type && ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax ) ) 
++      ) 
++    ) {
++      $menu_items[$key]->classes = trim( $menu_item->classes . ' ' . 'active' );
++      $active_parent_item_ids[] = (int) $menu_item->menu_item_parent;
++      $active_parent_object_ids[] = (int) $menu_item->post_parent;
++      $active_object = $menu_item->object;
++
++    // if the menu item corresponds to the currently-requested URL
++    } elseif ( 'custom' == $menu_item->object ) {
++      $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
++      $item_url = strpos( $menu_item->url, '#' ) ? substr( $menu_item->url, 0, strpos( $menu_item->url, '#' ) ) : $menu_item->url;
++      if ( $item_url == $current_url ) {
++        $menu_items[$key]->classes = trim( $menu_item->classes . ' ' . 'active' );
++        if ( untrailingslashit($current_url) == home_url() )
++          $menu_items[$key]->classes .= ' home';
++        $active_parent_item_ids[] = (int) $menu_item->menu_item_parent;
++        $active_parent_object_ids[] = (int) $menu_item->post_parent;
++        $active_object = $menu_item->object;
++      }
++    }
++  }
++
++  $active_parent_item_ids = array_filter( array_unique( $active_parent_item_ids ) );
++  $active_parent_object_ids = array_filter( array_unique( $active_parent_object_ids ) );
++
++  // set parent's class
++  // TODO: @Milenko: please choose the CSS classes you want to use.
++  // Please see the original patch here:
++  // http://core.trac.wordpress.org/changeset/14876
++  foreach ( (array) $menu_items as $key => $parent_item ) {
++    if ( 'post_type' == $parent_item->type && is_post_type_hierarchical( $queried_object->post_type ) && in_array( $parent_item->object_id, $queried_object->ancestors ) ) 
++      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-ancestor ' . 'current-' . $queried_object->post_type . '-ancestor' );
++    if ( in_array( $parent_item->db_id, $active_parent_item_ids ) )
++      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-parent' );
++    if ( in_array( $parent_item->object_id, $active_parent_object_ids ) )
++      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-parent ' . 'current-' . $active_object . '-parent' );
++  }
++}
++
++
+ // based on hybrid theme's title
+ function mystique_title($separator = ' &laquo; '){
+   global $wp_query;
+@@ -1176,4 +1275,4 @@
+     </div>
+ <?php
+ }  // </li> is added by WP
+-?>
+\ Manca newline alla fine del file
++?>
