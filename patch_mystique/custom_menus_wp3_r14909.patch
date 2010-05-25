@@ -1,12 +1,12 @@
 --- lib/core.php.orig	2010-05-25 20:41:16.136542548 +0200
-+++ lib/core.php	2010-05-25 22:24:21.240817386 +0200
++++ lib/core.php	2010-05-26 01:42:05.316609902 +0200
 @@ -144,21 +144,33 @@
      global $wp_query;
      $indent = ($depth) ? str_repeat("\t", $depth) : '';
      $classes = $value = '';
 -    $classes = array('type-'. $item->type, $item->classes);
 +    $classes = array('type-' . $item->type);
-+    if ( !empty($item->classes) )
++    if ( ! empty( $item->classes ) )
 +      $classes = array_merge($classes, explode(' ', $item->classes) );
  
  
@@ -61,7 +61,7 @@
  
    $walker = new mystique_MenuWalker();
    $items .= $walker->walk($sorted_menu_items, 0, array());
-@@ -275,6 +288,92 @@
+@@ -275,6 +288,98 @@
    <?php endif;
  }
  
@@ -141,8 +141,14 @@
 +  // Please see the original patch here:
 +  // http://core.trac.wordpress.org/changeset/14876
 +  foreach ( (array) $menu_items as $key => $parent_item ) {
-+    if ( 'post_type' == $parent_item->type && is_post_type_hierarchical( $queried_object->post_type ) && in_array( $parent_item->object_id, $queried_object->ancestors ) ) 
-+      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-ancestor ' . 'current-' . $queried_object->post_type . '-ancestor' );
++    if (
++      isset( $parent_item->type ) &&
++      'post_type' == $parent_item->type &&
++      ! empty( $queried_object->post_type ) &&
++      is_post_type_hierarchical( $queried_object->post_type ) &&
++      in_array( $parent_item->object_id, $queried_object->ancestors )
++    )
++      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'current-' . $queried_object->post_type . '-ancestor active-ancestor' );
 +    if ( in_array( $parent_item->db_id, $active_parent_item_ids ) )
 +      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-parent' );
 +    if ( in_array( $parent_item->object_id, $active_parent_object_ids ) )
@@ -154,10 +160,3 @@
  // based on hybrid theme's title
  function mystique_title($separator = ' &laquo; '){
    global $wp_query;
-@@ -1176,4 +1275,4 @@
-     </div>
- <?php
- }  // </li> is added by WP
--?>
-\ Manca newline alla fine del file
-+?>
