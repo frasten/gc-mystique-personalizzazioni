@@ -61,7 +61,9 @@ h3.title a:hover{color:#2a2}
 /*** TOP NAVIGATION ***/
 
 /* Colore testo dei link parent */
-ul#navigation li a{color: #080;text-transform: none}
+/* NOTA: ridotto di 3px verticalmente rispetto all'originale, e di
+ * 1px il padding laterale. */
+ul#navigation li a{color: #080;text-transform: none;font-size: 100%;line-height: 28px;min-height: 29px;padding-right: 12px;padding-left: 10px;background-position: 0 -3px;}
 
 /* link nei sottomenu della voce attiva */
 ul#navigation li.active a:hover{color: #080}
@@ -74,7 +76,7 @@ ul#navigation li.active-ancestor a
 {background:#080 url(img/nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;}
 
 /* submenus */
-ul#navigation ul{border-color: #7b7;background-color: white}
+ul#navigation ul{border-color: #7b7;background-color: white;top: 29px;}
 
 /* Padding nelle voci dei sottomenu, della voce attiva */
 /* Bordo esterno dei sottomenu attivi*/
