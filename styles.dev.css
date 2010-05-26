@@ -123,6 +123,8 @@ ul#navigation li ul li.active a:hover {color: #cfc;text-shadow: black 1px 1px 1p
 ul#navigation li li.active li a {color: #080}
 ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 1px;}
 
+#header .shadow-right {padding-bottom: 28px;}
+
 
 
 /* Immaginette personalizzate */
