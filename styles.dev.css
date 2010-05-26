@@ -176,13 +176,13 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 
 
 /* Extra navigation icons */
-#header p.nav-extra {top:-46px;height:54px;}
-#header a.nav-extra {height:60px;}
+#header p.nav-extra {top:-39px;height:46px;}
+#header a.nav-extra {height:51px;width: 55px;}
 
-#header a.nav-extra.rss{background:url(mystique_icons/nav-rss.png) no-repeat scroll right top transparent;}
-#header a.facebook{background:url(mystique_icons/nav-facebook.png) no-repeat scroll right top transparent;}
-#header a.email{background:url(mystique_icons/nav-email.png) no-repeat scroll right top transparent;}
-#header a.youtube{background:url(mystique_icons/nav-youtube.png) no-repeat scroll right top transparent;}
+#header a.nav-extra.rss{background:url(mystique_icons/nav-rss-small.png) no-repeat scroll right top transparent;}
+#header a.facebook{background:url(mystique_icons/nav-facebook-small.png) no-repeat scroll right top transparent;}
+#header a.email{background:url(mystique_icons/nav-email-small.png) no-repeat scroll right top transparent;}
+#header a.youtube{background:url(mystique_icons/nav-youtube-small.png) no-repeat scroll right top transparent;}
 
 
 /* Sexy Bookmarks */
