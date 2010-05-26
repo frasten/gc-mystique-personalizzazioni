@@ -36,6 +36,19 @@ function grandicarnivori_ie_di_merda() {
 EOF;
 }
 
+function grandicarnivori_slimbox() {
+	$img_dir = GRANDICARNIVORI_PLUGIN_URL . '/img/lightbox';
+	echo <<<EOF
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	slimbox2_options.prev = "$img_dir/prevlabel.gif";
+	slimbox2_options.next = "$img_dir/nextlabel.gif";
+	slimbox2_options.close = "$img_dir/closelabel.gif";
+	/* ]]> */
+	</script>
+EOF;
+}
+
 
 function mystique_custom_nav_icons($nav_extra)
 {
@@ -150,5 +163,5 @@ add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
 add_action('init', 'grandicarnivori_init');
 
 add_action('wp_head', 'grandicarnivori_ie_di_merda', 20);
-
+add_action('wp_head', 'grandicarnivori_slimbox', 20);
 ?>

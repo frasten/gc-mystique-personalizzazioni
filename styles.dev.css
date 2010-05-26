@@ -18,7 +18,7 @@ body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_t
 #header {width: 940px;margin: 0 auto;}
 
 /* Separiamo un pochino il contenuto vero e proprio dal resto */
-#main-inside{padding-top: 30px}
+#main-inside{padding-top: 15px}
 
 /* Navigazione post precedente/successivo */
 .single-navigation div {color: #080}
