@@ -61,7 +61,7 @@ h3.title a:hover{color:#2a2}
 /*** TOP NAVIGATION ***/
 
 /* Colore testo dei link parent */
-ul#navigation li a{color: #080}
+ul#navigation li a{color: #080;text-transform: none}
 
 /* link nei sottomenu della voce attiva */
 ul#navigation li.active a:hover{color: #080}
