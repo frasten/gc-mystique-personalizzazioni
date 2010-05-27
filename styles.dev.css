@@ -246,6 +246,7 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 #partners_top span {
 	display: block;
 	margin-bottom: 8px;
+	font-size: 90%;
 }
 
 #partners_top a {
