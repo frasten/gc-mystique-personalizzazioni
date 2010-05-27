@@ -150,6 +150,25 @@ function grandicarnivori_copyright() {
 	return $testo;
 }
 
+function grandicarnivori_banner() {
+	$banner = array();
+	// Url, Immagine, Testo
+	$banner[] = array('http://www.cbd.int/2010/welcome', 'biodiversita.gif', 'Anno internazionale della biodiversit&agrave;');
+	$banner[] = array('http://www.legambiente.eu/documenti/2010/0326_5x1000/index.php', 'cinquexmille.gif', '5 x 1000 a Legambiente');
+	$banner[] = array('http://www.iucn.org', 'iucn.gif', 'IUCN');
+
+	$out =  "<ul id='banners'>\n";
+	foreach ($banner as $ban) {
+		$out .= "<li>\n";
+		$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/banner/' . $ban[1];
+		$desc = esc_attr($ban[2]);
+		$out .= "<a href='{$ban[0]}' title='$desc'><img src='$img_path' alt='$desc' /></a>\n";
+		$out .= "</li>\n";
+	}
+	$out .= "</ul>";
+	return $out;
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -175,6 +194,7 @@ add_filter('widget_text', 'do_shortcode' );
 add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
 
 add_shortcode('gc_copyright', 'grandicarnivori_copyright');
+add_shortcode('gc_banner', 'grandicarnivori_banner');
 
 add_action('init', 'grandicarnivori_init');
 
