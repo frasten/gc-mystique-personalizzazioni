@@ -279,10 +279,18 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	background: transparent url(img/icons.png) no-repeat 0 -816px;
 }
 
+.block-gc-faq .margine-sx {
+	padding-left: 80px;
+}
+
 .block-gc-faq li,
 .block-gc-faq .post-thumb {
 	background: none;
 	padding-left: 0;
+}
+
+.block-gc-faq .post-thumb,.block-gc-faq em {
+	margin-bottom: 10px;
 }
 
 .block-gc-faq a:hover {

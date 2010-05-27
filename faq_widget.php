@@ -52,12 +52,14 @@ function widget( $args, $instance ) {
 		$menu_items = wp_get_nav_menu_items($nav_menu->term_id);
 		echo "<ul>\n";
 		foreach ($menu_items as $item) {
-			echo "<li>\n";
+			echo "<li class='clear-block'>\n";
 			mystique_post_thumb( 'post-thumbnail', $item->object_id );
+			echo "<div" . (!empty( $item->description ) ? ' class="margine-sx" ' : '') .">\n";
 			echo "<a href='" . esc_attr($item->url) . "'>" . esc_html($item->title) . "</a><br/>\n";
 			if ( ! empty( $item->description ) ) {
 				echo "<em>" . esc_html( $item->description ) . "</em>\n";
 			}
+			echo "</div>";
 			echo "</li>\n";
 		}
 		echo "</ul>\n";
