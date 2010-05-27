@@ -266,9 +266,25 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 }
 
 /* FAQ laterali */
-.block-gc-faq li a {
+.block-gc-faq a {
 	text-decoration: none;
-	font-size: 120%;
+	padding-left: 16px;
+	background: transparent url(img/icons.png) no-repeat 0 -816px;
+}
+
+.block-gc-faq li,
+.block-gc-faq .post-thumb {
+	background: none;
+	padding-left: 0;
+}
+
+.block-gc-faq a:hover {
+	text-decoration: underline;
+	background-position: 2px -1005px;
+}
+
+.block-gc-faq em {
+	font-size: 90%;
 }
 
 .block-gc-faq li {
