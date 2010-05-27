@@ -134,6 +134,9 @@ ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 
 
 
 
+.block h3.title {line-height: 110%;font-size: 110%;}
+
+
 /* Immaginette personalizzate */
 
 /* freccina laterale negli elenchi puntati nella sidebar */
