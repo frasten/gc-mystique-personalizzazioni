@@ -123,7 +123,7 @@ function grandicarnivori_partners_widget() {
 	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
 	<div id="partners_widget">
-		<span>Grazie al contributo di:</span>
+		<span>Progetto realizzato grazie al contributo di:</span>
 		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg" alt="Fondazione Cariplo"/></a><br />
 			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg" alt="Comune di Paspardo"/> Comune di Paspardo</a>
 	</div><!-- /partners_widget -->
