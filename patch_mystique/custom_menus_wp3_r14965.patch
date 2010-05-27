@@ -1,5 +1,5 @@
 --- lib/core.php.orig	2010-05-25 20:41:16.136542548 +0200
-+++ lib/core.php	2010-05-26 01:42:05.316609902 +0200
++++ lib/core.php	2010-05-27 00:24:08.590994390 +0200
 @@ -144,21 +144,33 @@
      global $wp_query;
      $indent = ($depth) ? str_repeat("\t", $depth) : '';
@@ -7,7 +7,7 @@
 -    $classes = array('type-'. $item->type, $item->classes);
 +    $classes = array('type-' . $item->type);
 +    if ( ! empty( $item->classes ) )
-+      $classes = array_merge($classes, explode(' ', $item->classes) );
++      $classes = array_merge( $classes, $item->classes );
  
  
  
@@ -44,8 +44,12 @@
      $classes = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item));
      $classes = ' class="' . esc_attr($classes) . '"';
  
-@@ -173,7 +185,7 @@
-     $item_output .= '<span class="title">' . apply_filters('the_title', $item->title) . '</span>';
+@@ -170,10 +182,10 @@
+     $attributes .= ! empty($item->url)        ? ' href="'   . esc_attr($item->url)        .'"' : '';
+ 
+     $item_output .= '<a'. $attributes .' class="fadeThis">';
+-    $item_output .= '<span class="title">' . apply_filters('the_title', $item->title) . '</span>';
++    $item_output .= '<span class="title">' . apply_filters('the_title', $item->title, $item->ID) . '</span>';
      $item_output .= '<span class="pointer"></span></a>';
  
 -    $output .= apply_filters('wp_get_nav_menu_item', $item_output, $args);
@@ -61,7 +65,7 @@
  
    $walker = new mystique_MenuWalker();
    $items .= $walker->walk($sorted_menu_items, 0, array());
-@@ -275,6 +288,98 @@
+@@ -275,6 +288,104 @@
    <?php endif;
  }
  
@@ -73,7 +77,7 @@
 + *
 + * @param array $menu_items The current menu item objects to which to add the class property information.
 + */
-+function _mystique_menu_item_classes_by_context( &$menu_items = array() ) {
++function _mystique_menu_item_classes_by_context( &$menu_items ) {
 +  global $wp_query;
 +
 +  $queried_object = $wp_query->get_queried_object();
@@ -83,7 +87,8 @@
 +  $active_parent_item_ids = array();
 +  $active_parent_object_ids = array();
 +  $possible_object_parents = array();
-+  
++  $home_page_id = (int) get_option( 'page_for_posts' );
++
 +  if ( $wp_query->is_singular && ! empty( $queried_object->post_type ) && ! is_post_type_hierarchical( $queried_object->post_type ) ) {
 +    foreach ( (array) get_object_taxonomies( $queried_object->post_type ) as $taxonomy ) {
 +      if ( is_taxonomy_hierarchical( $taxonomy ) ) {
@@ -104,16 +109,17 @@
 +      $active_parent_object_ids[] = (int) $menu_item->object_id;
 +      $active_parent_item_ids[] = (int) $menu_item->db_id;
 +      $active_object = $queried_object->post_type;
-+    
++
 +    // if the menu item corresponds to the currently-queried post or taxonomy object
 +    } elseif (
 +      $menu_item->object_id == $queried_object_id &&
-+      ( 
++      (
++        ( ! empty( $home_page_id ) && 'post_type' == $menu_item->type && $wp_query->is_home && $home_page_id == $menu_item->object_id ) ||
 +        ( 'post_type' == $menu_item->type && $wp_query->is_singular ) ||
-+        ( 'taxonomy' == $menu_item->type && ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax ) ) 
-+      ) 
++        ( 'taxonomy' == $menu_item->type && ( $wp_query->is_category || $wp_query->is_tag || $wp_query->is_tax ) )
++      )
 +    ) {
-+      $menu_items[$key]->classes = trim( $menu_item->classes . ' ' . 'active' );
++      $menu_items[$key]->classes[] = 'active';
 +      $active_parent_item_ids[] = (int) $menu_item->menu_item_parent;
 +      $active_parent_object_ids[] = (int) $menu_item->post_parent;
 +      $active_object = $menu_item->object;
@@ -123,14 +129,18 @@
 +      $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 +      $item_url = strpos( $menu_item->url, '#' ) ? substr( $menu_item->url, 0, strpos( $menu_item->url, '#' ) ) : $menu_item->url;
 +      if ( $item_url == $current_url ) {
-+        $menu_items[$key]->classes = trim( $menu_item->classes . ' ' . 'active' );
++        $menu_items[$key]->classes[] = 'active';
 +        if ( untrailingslashit($current_url) == home_url() )
-+          $menu_items[$key]->classes .= ' home';
++          $menu_items[$key]->classes[] = 'home';
 +        $active_parent_item_ids[] = (int) $menu_item->menu_item_parent;
 +        $active_parent_object_ids[] = (int) $menu_item->post_parent;
 +        $active_object = $menu_item->object;
 +      }
 +    }
++
++    // back-compat with wp_page_menu: add "current_page_parent" to static home page link for any non-page query
++    if ( ! empty( $home_page_id ) && 'post_type' == $menu_item->type && empty( $wp_query->is_page ) && $home_page_id == $menu_item->object_id ) 
++      $menu_items[$key]->classes[] = 'current_page_parent';
 +  }
 +
 +  $active_parent_item_ids = array_filter( array_unique( $active_parent_item_ids ) );
@@ -148,11 +158,11 @@
 +      is_post_type_hierarchical( $queried_object->post_type ) &&
 +      in_array( $parent_item->object_id, $queried_object->ancestors )
 +    )
-+      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'current-' . $queried_object->post_type . '-ancestor active-ancestor' );
++      $menu_items[$key]->classes[] = 'current-' . $queried_object->post_type . '-ancestor active-ancestor';
 +    if ( in_array( $parent_item->db_id, $active_parent_item_ids ) )
-+      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-parent' );
++      $menu_items[$key]->classes[] = 'active-parent';
 +    if ( in_array( $parent_item->object_id, $active_parent_object_ids ) )
-+      $menu_items[$key]->classes = trim( $parent_item->classes . ' ' . 'active-parent ' . 'current-' . $active_object . '-parent' );
++      $menu_items[$key]->classes[] = 'current-' . $active_object . '-parent';
 +  }
 +}
 +
