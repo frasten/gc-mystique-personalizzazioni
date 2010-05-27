@@ -134,6 +134,9 @@ ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 
 
 
 
+.block h3.title {line-height: 110%;font-size: 110%;}
+
+
 /* Immaginette personalizzate */
 
 /* freccina laterale negli elenchi puntati nella sidebar */
@@ -275,6 +278,14 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	text-decoration: none;
 }
 
+#partners_widget {
+	border: 1px solid #2a2;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 5px;
+}
+
 /* FAQ laterali */
 .block-gc-faq a {
 	text-decoration: none;
@@ -314,6 +325,12 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
 
+.copyright-footer {
+	font-size: 80%;
+	display: block;
+	margin-bottom: 10px;
+	color: #777;
+}
 
 /* PER LA STAMPA */
 @media print {
