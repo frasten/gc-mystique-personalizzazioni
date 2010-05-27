@@ -304,6 +304,7 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 
 .block-gc-faq li {
 	margin-bottom: 6px;
+	line-height: 120%;
 }
 
 /* NextGen Gallery */
