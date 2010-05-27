@@ -278,6 +278,14 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	text-decoration: none;
 }
 
+#partners_widget {
+	border: 1px solid #2a2;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 5px;
+}
+
 /* FAQ laterali */
 .block-gc-faq a {
 	text-decoration: none;
