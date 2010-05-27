@@ -12,8 +12,41 @@ License: GPL3
 include 'faq_widget.php';
 
 
+function grandicarnivori_init() {
+	$config = get_option('mystique');
+	$config['logo'] = GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png';
+	update_option('mystique', $config);
+}
+
+
 function mystique_stili_personalizzati() {
 	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' );
+}
+
+function grandicarnivori_ie_di_merda() {
+	$ie6_css = GRANDICARNIVORI_PLUGIN_URL . '/ie6.css';
+	$ie7_css = GRANDICARNIVORI_PLUGIN_URL . '/ie7.css';
+	echo <<<EOF
+	<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="$ie6_css" />
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="$ie7_css" />
+	<![endif]-->
+EOF;
+}
+
+function grandicarnivori_slimbox() {
+	$img_dir = GRANDICARNIVORI_PLUGIN_URL . '/img/lightbox';
+	echo <<<EOF
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	slimbox2_options.prev = "$img_dir/prevlabel.gif";
+	slimbox2_options.next = "$img_dir/nextlabel.gif";
+	slimbox2_options.close = "$img_dir/closelabel.gif";
+	/* ]]> */
+	</script>
+EOF;
 }
 
 
@@ -52,10 +85,9 @@ function grandicarnivori_partners_top() {
 	$img_path = GRANDICARNIVORI_PLUGIN_URL . '/img/partners';
 	$output = <<<EOF
 	<div id="partners_top">
-		QUI CI SARA' UNO SFONDO BIANCO
 		<span>Un progetto di:</span>
-		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
-		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
+		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg" alt="Comunità Montana ValleCamonica"/></a>
+		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg" alt="Legambiente"/></a>
 	</div><!-- /partners_top -->
 EOF;
 
@@ -76,12 +108,14 @@ EOF;
 }
 
 // Elimino il logo sopra.
-function grandicarnivori_logo() {
-	$out = '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
-	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";
-	$out .= "<br />Potrebbe andar bene come proposta di logo?";
+function grandicarnivori_logo($logo) {/*
+	$out = "<a href=''>";
+	$out .= '<img src="' . GRANDICARNIVORI_PLUGIN_URL . '/img/logo.png" style="vertical-align: middle">';
+	$out .= "</a>\n";
+	$out .= "<br/>^-- Poi sarà centrato giusto, e con sfondo bianco sfumato.";*/
+	//$out .= "<span class='clear-block'>Potrebbe andar bene come proposta di logo?</span>";
 
-	return $out;
+	return $logo . $out;
 }
 
 // Links alle immagini dei partners, nella sidebar.
@@ -90,11 +124,16 @@ function grandicarnivori_partners_widget() {
 	$output = <<<EOF
 	<div id="partners_widget">
 		<span>Grazie al contributo di:</span>
-		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a><br />
-			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg"/> Comune di Paspardo</a>
+		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg" alt="Fondazione Cariplo"/></a><br />
+			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg" alt="Comune di Paspardo"/> Comune di Paspardo</a>
 	</div><!-- /partners_widget -->
 EOF;
 	return $output;
+}
+
+
+function gc_favicon() {
+	echo GRANDICARNIVORI_PLUGIN_URL . '/img/favicon.png';
 }
 
 
@@ -121,4 +160,8 @@ add_filter('widget_text', 'do_shortcode' );
 
 add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
 
+add_action('init', 'grandicarnivori_init');
+
+add_action('wp_head', 'grandicarnivori_ie_di_merda', 20);
+add_action('wp_head', 'grandicarnivori_slimbox', 20);
 ?>

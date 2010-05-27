@@ -1,0 +1,17 @@
+/* Elimino completamente i featured posts, il testo si sovrappone. */
+#featured-content {display: none}
+
+/* Porto l'avviso di browser vecchio davanti al titolo. */
+.crap-browser-warning {z-index: 1000}
+
+/* Elimino l'immagine di sfondo dell'header. E' solo un di piu'. */
+body.fixed .header-wrapper {background-image: none}
+
+/* Correggo le liste puntate nelle sidebar */
+.block li{background:none;list-style-type: disc;padding: 0;margin-left: 18px}
+
+/* il link home, se inattivo, su mouseover diventa completamente bianco*/
+#navigation a.home:hover {color: #0a0 !important}
+
+/* Elimino le ombre, si vedono male siccome non supporta le trasparenze PNG */
+.shadow-left, .shadow-right {background: none !important}
