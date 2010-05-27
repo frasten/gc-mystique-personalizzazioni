@@ -280,6 +280,7 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	text-decoration: none;
 	padding-left: 16px;
 	background: transparent url(img/icons.png) no-repeat 0 -816px;
+	font-weight: bold;
 }
 
 .block-gc-faq .margine-sx {
