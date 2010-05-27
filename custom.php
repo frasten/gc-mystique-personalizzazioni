@@ -136,6 +136,20 @@ function gc_favicon() {
 	echo GRANDICARNIVORI_PLUGIN_URL . '/img/favicon.png';
 }
 
+function grandicarnivori_copyright() {
+	$anni = "2010";
+	$anno_corrente = date('Y');
+	if ($anno_corrente != $anni) $anni .= "-$anno_corrente";
+	$testo = '<span class="copyright-footer">';
+	$testo .= "&copy; $anni ";
+	$testo .= "Legambiente Lombardia Onlus - Tel. 02.87.38.64.80 - ";
+	$testo .= "E mail: <a href='mailto:info@grandicarnivori.it'>info@grandicarnivori.it</a> - ";
+	$testo .= "<a href='mailto:lombardia@legambiente.org'>lombardia@legambiente.org</a> - ";
+	$testo .= "<a href='http://www.legambiente.org'>www.legambiente.org</a>";
+	$testo .= '</span>';
+	return $testo;
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -159,6 +173,8 @@ add_filter('mystique_logo', 'grandicarnivori_logo');
 add_filter('widget_text', 'do_shortcode' );
 
 add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
+
+add_shortcode('gc_copyright', 'grandicarnivori_copyright');
 
 add_action('init', 'grandicarnivori_init');
 

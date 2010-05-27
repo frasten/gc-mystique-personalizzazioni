@@ -325,6 +325,12 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
 
+.copyright-footer {
+	font-size: 80%;
+	display: block;
+	margin-bottom: 10px;
+	color: #777;
+}
 
 /* PER LA STAMPA */
 @media print {
