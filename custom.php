@@ -86,8 +86,8 @@ function grandicarnivori_partners_top() {
 	$output = <<<EOF
 	<div id="partners_top">
 		<span>Un progetto di:</span>
-		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg"/></a>
-		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg"/></a>
+		<a href='http://www.cmvallecamonica.bs.it' title="Comunità Montana ValleCamonica" class="partner"><img src="$img_path/comunitamontana.jpg" alt="Comunità Montana ValleCamonica"/></a>
+		<a href='http://www.legambiente.org' title="Legambiente Lombardia" class="partner"><img src="$img_path/legambiente.jpg" alt="Legambiente"/></a>
 	</div><!-- /partners_top -->
 EOF;
 
@@ -124,8 +124,8 @@ function grandicarnivori_partners_widget() {
 	$output = <<<EOF
 	<div id="partners_widget">
 		<span>Grazie al contributo di:</span>
-		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a><br />
-			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg"/> Comune di Paspardo</a>
+		<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg" alt="Fondazione Cariplo"/></a><br />
+			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg" alt="Comune di Paspardo"/> Comune di Paspardo</a>
 	</div><!-- /partners_widget -->
 EOF;
 	return $output;
