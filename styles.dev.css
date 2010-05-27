@@ -151,6 +151,13 @@ ul#navigation li.active-ancestor a span.pointer
 
 /* Pulsante Leggi o continua... nei featured posts sulla home */
 #featured-content a.readmore{background-image:url(img/readmore.png)}
+#featured-content h2 {font-size: 160%;}
+#featured-content .summary {font-size: 110%;}
+
+#featured-content, #featured-content .slide-container, #featured-content ul.slides li.slide {
+	height: 144px;
+}
+
 
 /* Ombra sotto il menu superiore */
 .shadow-left{background-image:url(img/shadow.png);}
