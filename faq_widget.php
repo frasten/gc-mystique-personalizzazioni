@@ -49,8 +49,19 @@ function widget( $args, $instance ) {
 			echo "Menu non trovato";
 			return;
 		}
-		wp_nav_menu( array( 'menu' => $nav_menu ) );
-
+		$menu_items = wp_get_nav_menu_items($nav_menu->term_id);
+		echo "<ul>\n";
+		foreach ($menu_items as $item) {
+			echo "<li>\n";
+			mystique_post_thumb( 'post-thumbnail', $item->object_id );
+			echo "<a href='" . esc_attr($item->url) . "'>" . esc_html($item->title) . "</a><br/>\n";
+			if ( ! empty( $item->description ) ) {
+				echo "<em>" . esc_html( $item->description ) . "</em>\n";
+			}
+			echo "</li>\n";
+		}
+		echo "</ul>\n";
+		//wp_nav_menu( array( 'menu' => $nav_menu ) );
 
 		/* After widget (definito dal tema). */
 		echo $after_widget;
