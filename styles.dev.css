@@ -104,7 +104,7 @@ ul#navigation li.active.home a {
 /* Sottomenu, inattivi */
 ul#navigation ul li a,
 ul#navigation li.active ul a
-{color: #080;text-shadow:#aaa 1px 1px 1px;}
+{color: #080;text-shadow:#bbb 1px 1px 1px;}
 
 
 /* Mouseover sui menu sopra, se attivi */
