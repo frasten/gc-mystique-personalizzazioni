@@ -156,9 +156,10 @@ function grandicarnivori_banner() {
 	return $out;
 }
 
-/* Questa funzione permette di inserire lo shortcode gc_mostrafigli 
- * nelle pagine madre (es. Clicco su Lupo e mi mostra l'albero dei figli.
- * 
+/* Questa funzione permette di inserire lo shortcode gc_mostrafigli
+ * per mostrare le pagine figlia nella pagina madre.
+ * (es. Clicco su Lupo e mi mostra l'albero dei figli)
+ *
  * Nota: se una voce appare piu' volte nel menu, mostro l'albero della
  * prima ricorrenza. */
 function grandicarnivori_mostrafigli() {
@@ -170,7 +171,7 @@ function grandicarnivori_mostrafigli() {
 	$sorted_menu_items = array();
 	foreach ((array) $menu_items as $key => $menu_item) $sorted_menu_items[$menu_item->menu_order] = wp_setup_nav_menu_item($menu_item);
 
-	/* Scorro rapidamente tutti gli elementi del menu, per vedere se io 
+	/* Scorro rapidamente tutti gli elementi del menu, per vedere se io
 	 * sono un parent di menu, ed in caso ne prendo l'id. */
 	$id_nel_menu = 0;
 	foreach ($sorted_menu_items as $item) {
