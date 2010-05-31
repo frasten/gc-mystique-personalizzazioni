@@ -156,6 +156,50 @@ function grandicarnivori_banner() {
 	return $out;
 }
 
+/* Questa funzione permette di inserire lo shortcode gc_mostrafigli 
+ * nelle pagine madre (es. Clicco su Lupo e mi mostra l'albero dei figli.
+ * 
+ * Nota: se una voce appare piu' volte nel menu, mostro l'albero della
+ * prima ricorrenza. */
+function grandicarnivori_mostrafigli() {
+	global $post;
+	// Prendo l'id del menu superiore dalle impostazioni di mystique
+	$navtype = get_mystique_option('navigation');
+	$menu = wp_get_nav_menu_object(substr($navtype, 5));
+	$menu_items = wp_get_nav_menu_items($menu->term_id);
+	$sorted_menu_items = array();
+	foreach ((array) $menu_items as $key => $menu_item) $sorted_menu_items[$menu_item->menu_order] = wp_setup_nav_menu_item($menu_item);
+
+	/* Scorro rapidamente tutti gli elementi del menu, per vedere se io 
+	 * sono un parent di menu, ed in caso ne prendo l'id. */
+	$id_nel_menu = 0;
+	foreach ($sorted_menu_items as $item) {
+		// Scarto i figli
+		if ($item->menu_item_parent != 0) continue;
+		// Se la pagina corrente e' un parent di menu:
+		if ($item->object_id == $post->ID) {
+			$id_nel_menu = $item->ID;
+			break;
+		}
+	}
+	// Se non l'ho trovato, esco.
+	if ($id_nel_menu <= 0) return;
+
+	// Ora riscorro un'altra volta, cercando i figli.
+	// NOTA: per ora sto codice prende solo i figli DIRETTI, non i "nipoti"
+	$out = "<p>Pagine in questa sezione:</p>";
+	$out .= "<ul>";
+	foreach ($sorted_menu_items as $item) {
+		// Scarto i figli di altri
+		if ($item->menu_item_parent != $id_nel_menu) continue;
+		$out .= "<li>";
+		$out .= "<a href='{$item->url}'>" . esc_html($item->title) . "</a>";
+		$out .= "</li>";
+	}
+	$out .= "</ul>";
+	return $out;
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -182,6 +226,7 @@ add_shortcode('gc_partners', 'grandicarnivori_partners_widget');
 
 add_shortcode('gc_copyright', 'grandicarnivori_copyright');
 add_shortcode('gc_banner', 'grandicarnivori_banner');
+add_shortcode('gc_mostrafigli', 'grandicarnivori_mostrafigli');
 
 add_action('init', 'grandicarnivori_init');
 
