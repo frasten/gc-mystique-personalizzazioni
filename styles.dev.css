@@ -81,7 +81,7 @@ body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_t
 p {margin: 0.9em 0}
 
 /* Stacco un pochino il contenuto di un post da ciò che c'è sopra. */
-.post-content {margin-top: 14px}
+#primary-content {margin-top: 14px}
 
 a:hover {color: #080;}
 .post-info a:hover {color: #080}
@@ -91,8 +91,8 @@ li.comment .controls a:hover{background-color:#070; border-top-color:#5b5; color
 
 /* Elenchi puntati nel contenuto */
 #primary-content ul{list-style-type:none;margin:0 0 .4em 0;}
-#primary-content li{background:transparent url(img/icons.png) no-repeat 4px /*-816px*/-1005px;margin:0;padding:0 0 0 18px;}
-/* Non lo faccio su mouseover.    .post-content li:hover{background-position:4px -1005px;}*/
+#primary-content li{background:transparent url(img/icons.png) no-repeat 4px /*-816px*/-1005px;margin:0.5em 0;padding:0 0 0 18px;}
+/* Non lo faccio su mouseover.    #primary.content li:hover{background-position:4px -1005px;}*/
 #primary-content li li{margin-left:.4em;}
 
 
@@ -124,7 +124,7 @@ h3.title a:hover{color:#2a2}
 .post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
 
-.post-content a img {
+#primary-content a img {
 	border: 1px solid #CCC;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -377,5 +377,5 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 
 @media print {
  #sidebar, #footer, .post-tags, .fb-like {display:none;}
- .post-content {font-family: "Times New Roman", serif}
+ #primary-content {font-family: "Times New Roman", serif}
 }
