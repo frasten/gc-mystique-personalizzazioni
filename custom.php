@@ -91,19 +91,6 @@ function grandicarnivori_partners_top() {
 	</div><!-- /partners_top -->
 EOF;
 
-/*
-
-<div id="barra_bottom">
-	<div id="wrapper_partners">
-		
-		<div id="partners_right">
-			<span>Grazie al contributo di:</span>
-			<a href='http://www.fondazionecariplo.it' title="Fondazione Cariplo" class="partner"><img src="$img_path/cariplo.jpg"/></a>
-			<a href='http://www.comune.paspardo.bs.it' title="Comune di Paspardo" class="partner"><img src="$img_path/paspardo.jpg"/></a>
-		</div><!-- /partners_right  -->
-	</div><!-- /wrapper_partners -->
-</div><!-- /barra_bottom -->
-*/
 	echo $output;
 }
 

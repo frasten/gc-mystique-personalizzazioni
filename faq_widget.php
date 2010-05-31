@@ -40,8 +40,8 @@ function widget( $args, $instance ) {
 				$menu_slug = $instance['menu_pastori'];
 			else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
 				$menu_slug = $instance['menu_cacciatori'];
-			else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
-				$menu_slug = $instance['menu_turisti'];
+			else if ($ids[3] && $this->figlio_di($ids[3])) // centro recupero fauna selvatica
+				$menu_slug = $instance['menu_recupero'];
 		}
 
 		$nav_menu = wp_get_nav_menu_object( $menu_slug );
@@ -104,6 +104,7 @@ function widget( $args, $instance ) {
 		  'menu_pastori' => '',
 		  'menu_cacciatori' => '',
 		  'menu_turisti' => '',
+		  'menu_recupero' => '',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -160,10 +161,22 @@ function widget( $args, $instance ) {
 		</p>
 
 
+		<!-- FAQ Recupero -->
+		<p>
+			<label for="<?php echo $this->get_field_id( 'menu_turisti' ); ?>">Menu per le domande per il recupero animali selvatici:</label><br />
+			<select id="<?php echo $this->get_field_id( 'menu_recupero' ); ?>" name="<?php echo $this->get_field_name( 'menu_recupero' ); ?>">
+			<?php
+			foreach(wp_get_nav_menus() as $menu)
+				echo '<option value="'.$menu->slug.'" '.selected($menu->slug, $instance['menu_recupero'], false).'>'.$menu->name.'</option>';
+			?>
+			</select>
+		</p>
+
+
 
 <!-- ID pagine tipologie utenti -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, cacciatori, turisti</strong>. Separati da virgola.</label><br />
+			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, cacciatori, turisti, recupero</strong>. Separati da virgola.</label><br />
 			<input type="text" id="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>" name="<?php echo $this->get_field_name( 'id_pagine_tipologie' ); ?>" value="<?php echo $instance['id_pagine_tipologie']?>">
 		</p>
 <?php
@@ -182,6 +195,7 @@ function widget( $args, $instance ) {
 		$instance['menu_cacciatori'] = $new_instance['menu_cacciatori'];
 		$instance['menu_pastori'] = $new_instance['menu_pastori'];
 		$instance['menu_turisti'] = $new_instance['menu_turisti'];
+		$instance['menu_recupero'] = $new_instance['menu_recupero'];
 
 
 		$instance['id_pagine_tipologie'] = preg_replace('/[^0-9,]/', '', $new_instance['id_pagine_tipologie']);
