@@ -8,11 +8,12 @@
  * Non lo sapevo proprio.
  * */
 
+/***********************************************************************
+ *                           HEADER
+ **********************************************************************/
 
 /* Titolo principale */
-#site-title {
-	padding: 1em 0;
-}
+#site-title {padding: 1em 0;}
 
 #site-title #logo {margin-top: 10px;}
 
@@ -20,7 +21,56 @@ body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_t
 #header {width: 940px;margin: 0 auto;}
 
 /* Separiamo un pochino il contenuto vero e proprio dal resto */
-#main-inside{padding-top: 15px}
+#main-inside {padding-top: 15px}
+
+#header .shadow-right {padding-bottom: 28px;}
+
+/* Partners in alto a destra */
+#partners_top {
+	float: right;
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+#partners_top span {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 90%;
+}
+
+#partners_top a {
+	margin: auto 5px;
+}
+#partners_top .partner img {
+	border: 1px solid #beb;
+	padding: 4px;
+	background-color: white;
+}
+
+.partner img {
+	height: 60px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+
+/***********************************************************************
+ *                   EXTRA ICONE in alto a destra
+ **********************************************************************/
+
+#header p.nav-extra {top:-39px;height:46px;}
+#header a.nav-extra {height:51px;width: 55px;}
+
+#header a.nav-extra.rss{background:url(mystique_icons/nav-rss-small.png) no-repeat scroll right top transparent;}
+#header a.facebook{background:url(mystique_icons/nav-facebook-small.png) no-repeat scroll right top transparent;}
+#header a.email{background:url(mystique_icons/nav-email-small.png) no-repeat scroll right top transparent;}
+#header a.youtube{background:url(mystique_icons/nav-youtube-small.png) no-repeat scroll right top transparent;}
+
+
+/***********************************************************************
+ *                           CONTENUTO
+ **********************************************************************/
 
 /* Navigazione post precedente/successivo */
 .single-navigation div {color: #080}
@@ -58,9 +108,54 @@ h3.title a:hover{color:#2a2}
 .single-navigation a:hover {color: #080}
 .page-navigation a:hover, .comment-navigation a:hover{border-color: #080;background-color: #080}
 
+/* iconcina del fumetto utilizzata quando ci sono commenti in un post */
+.post-info p.comments a.comments{background-image:url(img/icons.png)}
+/* Iconcina dei tags */
+.post-tags{background-image:url(img/icons.png)}
+
+/* es. archivio di >> maggio << */
+.altText{color:#2a2;}
+
+/* Data di scrittura del post */
+.post-info{background-image:url(img/info-bar.png)}
+.post-date{text-transform:none;background-image: url(img/info-bar.png)}
+.post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
 
-/*** TOP NAVIGATION ***/
+.post-content a img {
+	border: 1px solid #CCC;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 4px;
+	-webkit-box-shadow: 2px 2px 5px #888;
+	-moz-box-shadow: 2px 2px 5px #888;
+	box-shadow: 2px 2px 2px #888;
+}
+
+
+/* Icona nei link che puntano ai vari tipi di file */
+a[href $='.pdf'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_pdf.png) no-repeat center right;
+}
+a[href $='.doc'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_doc.png) no-repeat center right;
+}
+a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
+	padding-right: 18px;
+	background: transparent url(img/icon_zip.png) no-repeat center right;
+}
+
+/* Risultati ricerca */
+.search h1.title {font-size: 200%}
+.search .title .error {color: #080}
+
+/***********************************************************************
+ *                         TOP NAVIGATION
+ **********************************************************************/
+
 
 /* Colore testo dei link parent */
 /* NOTA: ridotto di 3px verticalmente rispetto all'originale, e di
@@ -130,161 +225,38 @@ ul#navigation li ul li.active a:hover {color: #080;text-shadow: #fff 1px 1px 1px
 ul#navigation li li.active li a {color: #080;background: none}
 ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 1px;background: none}
 
-#header .shadow-right {padding-bottom: 28px;}
-
-
-
-.block h3.title {line-height: 110%;font-size: 110%;}
-
-
-/* Immaginette personalizzate */
-
-/* freccina laterale negli elenchi puntati nella sidebar */
-.block li{background-image:url(img/icons.png)}
-/* iconcina del fumetto utilizzata quando ci sono commenti in un post */
-.post-info p.comments a.comments{background-image:url(img/icons.png)}
-/* Iconcina dei tags */
-.post-tags{background-image:url(img/icons.png)}
-/* freccina laterale negli elenchi puntati nella sidebar ? */
-.box ul.menuList li a span.entry{background-image:url(img/icons.png)}
-
 /* Freccetta sotto la voce corrente nel menu in alto */
 ul#navigation li.active a span.pointer,
 ul#navigation li.active-parent a span.pointer,
 ul#navigation li.active-ancestor a span.pointer
 {background-image:url(img/nav-pointer.png)}
 
-/* Pulsante Leggi o continua... nei featured posts sulla home */
-#featured-content a.readmore{background-image:url(img/readmore.png)}
-#featured-content h2 {font-size: 160%;}
-#featured-content .summary {font-size: 110%;}
-
-#featured-content, #featured-content .slide-container, #featured-content ul.slides li.slide {
-	height: 144px;
-}
-
 
 /* Ombra sotto il menu superiore */
+/* TODO: ma e' davvero necessario??????? */
 .shadow-left{background-image:url(img/shadow.png);}
 .shadow-right{background-image:url(img/shadow.png);}
 
 
 
+/***********************************************************************
+ *                           SIDEBAR
+ **********************************************************************/
+
+.block h3.title {line-height: 110%;font-size: 110%;}
+
+
+/* freccina laterale negli elenchi puntati nella sidebar */
+.block li{background-image:url(img/icons.png)}
+/* freccina laterale negli elenchi puntati nella sidebar ? */
+.box ul.menuList li a span.entry{background-image:url(img/icons.png)}
+
 .block h3.title,.block h3.title span,.block .block-div,
 .block .block-div-arrow{background-image:url(img/block-title.png)}
-li.comment .comment-head{background-image:url(img/comment-head.png);}
-li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostauthor{background-color:#32ba2f;}
+
+/* Form di ricerca */
 .search-form #searchfield,.search-form input.submit{background-image:url(img/search.png);}
-.tabs-wrap{background-image:url(img/tabs-bg.png);}
-.tabs li{background-image:url(img/tabs-c.png);}
-.tabs li a{background-image:url(img/tabs.png);}
 
-
-/* es. archivio di >> maggio << */
-.altText{color:#2a2;}
-
-
-
-
-
-/* Risultati ricerca */
-.search h1.title {font-size: 200%}
-.search .title .error {color: #080}
-
-
-/* Extra navigation icons */
-#header p.nav-extra {top:-39px;height:46px;}
-#header a.nav-extra {height:51px;width: 55px;}
-
-#header a.nav-extra.rss{background:url(mystique_icons/nav-rss-small.png) no-repeat scroll right top transparent;}
-#header a.facebook{background:url(mystique_icons/nav-facebook-small.png) no-repeat scroll right top transparent;}
-#header a.email{background:url(mystique_icons/nav-email-small.png) no-repeat scroll right top transparent;}
-#header a.youtube{background:url(mystique_icons/nav-youtube-small.png) no-repeat scroll right top transparent;}
-
-
-/* Sexy Bookmarks */
-.sexy-bookmarks {margin: auto 20px !important;}
-
-body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
-
-/* Data di scrittura del post */
-.post-info{background-image:url(img/info-bar.png)}
-.post-date{text-transform:none;background-image: url(img/info-bar.png)}
-.post-date p.day{background-image:url(img/info-bar.png);color: #999}
-
-
-.post-content a img {
-	border: 1px solid #CCC;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	padding: 4px;
-	-webkit-box-shadow: 2px 2px 5px #888;
-	-moz-box-shadow: 2px 2px 5px #888;
-	box-shadow: 2px 2px 2px #888;
-}
-
-
-/* Icona nei link che puntano ai vari tipi di file */
-a[href $='.pdf'] {
-	padding-right: 18px;
-	background: transparent url(img/icon_pdf.png) no-repeat center right;
-}
-a[href $='.doc'] {
-	padding-right: 18px;
-	background: transparent url(img/icon_doc.png) no-repeat center right;
-}
-a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
-	padding-right: 18px;
-	background: transparent url(img/icon_zip.png) no-repeat center right;
-}
-
-
-/* Partners in alto a destra */
-#partners_top {
-	float: right;
-	text-align: center;
-	margin-bottom: 30px;
-	margin-top: 10px;
-}
-
-#partners_top span {
-	display: block;
-	margin-bottom: 8px;
-	font-size: 90%;
-}
-
-#partners_top a {
-	margin: auto 5px;
-}
-#partners_top .partner img {
-	border: 1px solid #beb;
-	padding: 4px;
-	background-color: white;
-}
-
-.partner img {
-	height: 60px;
-	margin-left: 3px;
-	margin-right: 3px;
-}
-
-/* Partners laterali */
-#partners_widget img {
-	vertical-align: middle;
-}
-
-#partners_widget a {
-	text-decoration: none;
-}
-
-#partners_widget {
-	border: 1px solid #2a2;
-	border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	padding: 5px;
-}
 
 /* FAQ laterali */
 .block-gc-faq a {
@@ -322,11 +294,73 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	line-height: 120%;
 }
 
-#banners li {background: none;margin-top: 10px;padding: 0;}
+/* Partners laterali */
+#partners_widget img {
+	vertical-align: middle;
+}
 
+#partners_widget a {
+	text-decoration: none;
+}
+
+#partners_widget {
+	border: 1px solid #2a2;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 5px;
+}
+
+#banners li {background: none;margin-top: 10px;text-align: center;padding: 0;}
+
+/***********************************************************************
+ *                        FEATURED CONTENTS
+ **********************************************************************/
+
+/* Pulsante Leggi o continua... nei featured posts sulla home */
+#featured-content a.readmore{background-image:url(img/readmore.png)}
+#featured-content h2 {font-size: 160%;}
+#featured-content .summary {font-size: 110%;}
+
+#featured-content, #featured-content .slide-container, #featured-content ul.slides li.slide {
+	height: 144px;
+}
+
+
+
+/***********************************************************************
+ *                        COMMENTI
+ **********************************************************************/
+
+
+li.comment .comment-head{background-image:url(img/comment-head.png);}
+li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostauthor{background-color:#32ba2f;}
+
+.tabs-wrap{background-image:url(img/tabs-bg.png);}
+.tabs li{background-image:url(img/tabs-c.png);}
+.tabs li a{background-image:url(img/tabs.png);}
+
+
+
+/***********************************************************************
+ *                       Altri plugin
+ **********************************************************************/
+
+/* Sexy Bookmarks */
+.sexy-bookmarks {margin: auto 20px !important;}
 
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
+
+
+body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
+
+
+
+
+/***********************************************************************
+ *                            FOOTER
+ **********************************************************************/
 
 .copyright-footer {
 	font-size: 80%;
@@ -335,7 +369,10 @@ a[href $='.zip'], a[href $='.rar'], a[href $='.zip'] {
 	color: #777;
 }
 
-/* PER LA STAMPA */
+/***********************************************************************
+ *                            STAMPA
+ **********************************************************************/
+
 @media print {
  #sidebar, #footer, .post-tags, .fb-like {display:none;}
  .post-content {font-family: "Times New Roman", serif}
