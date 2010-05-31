@@ -358,6 +358,8 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
+.ngg-widget img {border-color: #aea !important;}
+.ngg-thumbnail img:hover, .ngg-gallery-thumbnail img:hover {background-color: #aea !important;}
 
 
 body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
