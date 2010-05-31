@@ -92,11 +92,10 @@ li.comment .controls a:hover{background-color:#070; border-top-color:#5b5; color
 
 
 /* Elenchi puntati nel contenuto */
-#primary-content ul{list-style-type:none;margin:0 0 .4em 0;}
-#primary-content li{background:transparent url(img/icons.png) no-repeat 4px /*-816px*/-1005px;margin:0.5em 0;padding:0 0 0 18px;}
+.hentry ul{list-style-type:none;margin:0 0 .4em 0;}
+.hentry li{background:transparent url(img/icons.png) no-repeat 4px /*-816px*/-1005px;margin:0.5em 0;padding:0 0 0 18px;}
 /* Non lo faccio su mouseover.    #primary.content li:hover{background-position:4px -1005px;}*/
-#primary-content li li{margin-left:.4em;}
-
+.hentry li li{margin-left:.4em;}
 
 
 /* Titolo dei posts */
@@ -126,7 +125,7 @@ h3.title a:hover{color:#2a2}
 .post-date p.day{background-image:url(img/info-bar.png);color: #999}
 
 
-#primary-content a img {
+.hentry a img {
 	border: 1px solid #CCC;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -137,8 +136,8 @@ h3.title a:hover{color:#2a2}
 	box-shadow: 2px 2px 2px #888;
 }
 
-#primary-content img.alignleft {margin-right: 14px;}
-#primary-content img.alignright {margin-left: 14px;}
+.hentry img.alignleft {margin-right: 14px;}
+.hentry img.alignright {margin-left: 14px;}
 
 /* Icona nei link che puntano ai vari tipi di file */
 a[href $='.pdf'] {
