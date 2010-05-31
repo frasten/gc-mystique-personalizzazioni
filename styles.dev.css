@@ -78,6 +78,8 @@ body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_t
 .single-navigation a:href {color: #080}
 
 
+p {margin: 0.9em 0}
+
 /* Stacco un pochino il contenuto di un post da ciò che c'è sopra. */
 .post-content {margin-top: 14px}
 
