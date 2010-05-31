@@ -81,7 +81,9 @@ body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_t
 p {margin: 0.9em 0}
 
 /* Stacco un pochino il contenuto di un post da ciò che c'è sopra. */
-#primary-content {margin-top: 14px}
+#primary-content {margin-top: 14px;}
+
+#primary-content .blocks {padding-left: 8px;}
 
 a:hover {color: #080;}
 .post-info a:hover {color: #080}
