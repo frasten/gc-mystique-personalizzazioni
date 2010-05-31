@@ -135,6 +135,8 @@ h3.title a:hover{color:#2a2}
 	box-shadow: 2px 2px 2px #888;
 }
 
+#primary-content img.alignleft {margin-right: 14px;}
+#primary-content img.alignright {margin-left: 14px;}
 
 /* Icona nei link che puntano ai vari tipi di file */
 a[href $='.pdf'] {
