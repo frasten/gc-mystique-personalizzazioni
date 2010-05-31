@@ -174,9 +174,10 @@ ul#navigation li.active:hover a{background-color:white;}
 ul#navigation li.active a,
 ul#navigation li.active-parent a,
 ul#navigation li.active-ancestor a
-{background:#080 url(img/nav-active.png) no-repeat left top;text-shadow:#888 1px 1px 1px;color: #dedede}
+{background:#080 url(img/nav-active.png) no-repeat left top;text-shadow:#444 1px 1px 1px;color: #dedede}
 
-ul#navigation li.active-ancestor li a {color: #080}
+ul#navigation li.active-ancestor li a {color: #080;text-shadow:#bbb 1px 1px 1px;}
+ul#navigation li.active-ancestor li.active a {text-shadow:black 1px 1px 1px;}
 
 /* submenus */
 ul#navigation ul{border-color: #7b7;background-color: white;top: 29px;}
@@ -227,7 +228,7 @@ ul#navigation li ul li.active a:hover {color: #080;text-shadow: #fff 1px 1px 1px
 
 /* Sottomenu della voce corrente, se essa e' in un sottomenu */
 ul#navigation li li.active li a {color: #080;background: none}
-ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #aaa 1px 1px 1px;background: none}
+ul#navigation li ul li.active li a:hover {color: #080;text-shadow: #bbb 1px 1px 1px;background: none}
 
 /* Freccetta sotto la voce corrente nel menu in alto */
 ul#navigation li.active a span.pointer,
