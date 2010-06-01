@@ -211,17 +211,17 @@ function stampa_immagini_utenza() {
 			array(
 				'img' => 'pastori.jpg',
 				'id' => '272',
-				'testo' => 'Pastori',
+				'testo' => 'Sono un pastore',
 			),
 			array(
 				'img' => 'cacciatori.jpg',
 				'id' => '281',
-				'testo' => 'Cacciatori',
+				'testo' => 'Sono un cacciatore',
 			),
 			array(
 				'img' => 'turisti.jpg',
 				'id' => '283',
-				'testo' => 'Turisti',
+				'testo' => 'Sono un turista',
 			),
 		);
 		echo "<div id='linkutenza' class='clear-block'>";
