@@ -10,7 +10,7 @@ License: GPL3
 */
 
 include 'faq_widget.php';
-include 'tinymce_invii.php';
+include 'tinymce/invii.php';
 
 
 function grandicarnivori_init() {
