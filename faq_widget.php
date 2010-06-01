@@ -40,6 +40,8 @@ function widget( $args, $instance ) {
 				$menu_slug = $instance['menu_pastori'];
 			else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
 				$menu_slug = $instance['menu_cacciatori'];
+			else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
+				$menu_slug = $instance['menu_turisti'];
 			else if ($ids[3] && $this->figlio_di($ids[3])) // centro recupero fauna selvatica
 				$menu_slug = $instance['menu_recupero'];
 		}
@@ -163,7 +165,7 @@ function widget( $args, $instance ) {
 
 		<!-- FAQ Recupero -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'menu_turisti' ); ?>">Menu per le domande per il recupero animali selvatici:</label><br />
+			<label for="<?php echo $this->get_field_id( 'menu_recupero' ); ?>">Menu per le domande per il recupero animali selvatici:</label><br />
 			<select id="<?php echo $this->get_field_id( 'menu_recupero' ); ?>" name="<?php echo $this->get_field_name( 'menu_recupero' ); ?>">
 			<?php
 			foreach(wp_get_nav_menus() as $menu)
