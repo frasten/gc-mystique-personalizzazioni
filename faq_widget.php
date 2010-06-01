@@ -81,7 +81,7 @@ function widget( $args, $instance ) {
 		$id_parent = $this->get_parent( $id );
 		if ($id_parent == 0) return false;
 		if ($id_parent == $id_cercato) return true;
-		return figlio_di($id_cercato, $id_parent);
+		return $this->figlio_di($id_cercato, $id_parent);
 	}
 
 
@@ -89,9 +89,10 @@ function widget( $args, $instance ) {
 		global $wpdb;
 		if ($id == 0) return 0;
 
-		$parent = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE ID = %d AND post_type = 'page' LIMIT 1", $id ) );
-		if ( is_int( $parent->ID ) )
-			return $parent->ID;
+		$parent = $wpdb->get_row( $wpdb->prepare( "SELECT post_parent FROM $wpdb->posts WHERE ID = %d AND post_type = 'page' LIMIT 1", $id ) );
+		if ( is_numeric( $parent->post_parent ) ) {
+			return (int) $parent->post_parent;
+		}
 		else
 			return 0;
 	}
