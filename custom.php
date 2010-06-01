@@ -203,6 +203,40 @@ function grandicarnivori_mostrafigli() {
 }
 
 
+function stampa_immagini_utenza() {
+	global $wp_query;
+	// Lo stampo prima del primo post sulla home
+	if(is_home() && !is_paged() && ($wp_query->current_post)==0) {
+		$links = array(
+			array(
+				'img' => 'pastori.jpg',
+				'id' => '272',
+				'testo' => 'Pastori',
+			),
+			array(
+				'img' => 'cacciatori.jpg',
+				'id' => '281',
+				'testo' => 'Cacciatori',
+			),
+			array(
+				'img' => 'turisti.jpg',
+				'id' => '283',
+				'testo' => 'Turisti',
+			),
+		);
+		echo "<div id='linkutenza' class='clear-block'>";
+		foreach ($links as $l) {
+			$url = get_permalink( $l['id'] );
+			if (! $url) continue;
+			$img_path = GRANDICARNIVORI_PLUGIN_URL . "/img/utenti/{$l['img']}";
+			echo "<div class='utenza'><a href='$url'><img src='$img_path' alt='" . esc_attr($l['testo']) . "' width='150' height='150' /><br />" .esc_html($l['testo']). "</a></div>";
+		}
+		echo "</div>";
+	}
+}
+
+
+
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
 if ( ! defined('GRANDICARNIVORI_PLUGIN_URL') ) {
@@ -234,4 +268,6 @@ add_action('init', 'grandicarnivori_init');
 
 add_action('wp_head', 'grandicarnivori_ie_di_merda', 20);
 add_action('wp_head', 'grandicarnivori_slimbox', 20);
+
+add_action('mystique_before_post', 'stampa_immagini_utenza');
 ?>

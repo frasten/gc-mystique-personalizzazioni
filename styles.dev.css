@@ -333,6 +333,14 @@ ul#navigation li.active-ancestor a span.pointer
 }
 
 
+/***********************************************************************
+ *                     LINKS TIPI DI UTENTE SULLA HOME
+ **********************************************************************/
+
+.utenza {float: left;text-align: center;margin: 0 22px;}
+#linkutenza a {text-decoration: none;font-weight: bold;}
+#linkutenza {text-align: center;margin-bottom: 40px;float: left;}
+
 
 /***********************************************************************
  *                        COMMENTI
