@@ -36,8 +36,8 @@ function widget( $args, $instance ) {
 		$menu_slug = $instance['menu_generale'];
 		if ( is_page() ) {
 			/* Scelgo la lista di domande da mostrare, a seconda di dove mi trovo.*/
-			if ($ids[0] && $this->figlio_di($ids[0])) // pastori
-				$menu_slug = $instance['menu_pastori'];
+			if ($ids[0] && $this->figlio_di($ids[0])) // allevatori
+				$menu_slug = $instance['menu_allevatori'];
 			else if ($ids[1] && $this->figlio_di($ids[1])) // cacciatori
 				$menu_slug = $instance['menu_cacciatori'];
 			else if ($ids[2] && $this->figlio_di($ids[2])) // turisti
@@ -104,7 +104,7 @@ function widget( $args, $instance ) {
 		$defaults = array(
 		  'title' => '',
 		  'menu_generale' => '',
-		  'menu_pastori' => '',
+		  'menu_allevatori' => '',
 		  'menu_cacciatori' => '',
 		  'menu_turisti' => '',
 		  'menu_recupero' => '',
@@ -128,13 +128,13 @@ function widget( $args, $instance ) {
 			</select>
 		</p>
 
-		<!-- FAQ Pastori -->
+		<!-- FAQ Allevatori -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'menu_pastori' ); ?>">Menu per le domande per i pastori:</label><br />
-			<select id="<?php echo $this->get_field_id( 'menu_pastori' ); ?>" name="<?php echo $this->get_field_name( 'menu_pastori' ); ?>">
+			<label for="<?php echo $this->get_field_id( 'menu_allevatori' ); ?>">Menu per le domande per gli allevatori:</label><br />
+			<select id="<?php echo $this->get_field_id( 'menu_allevatori' ); ?>" name="<?php echo $this->get_field_name( 'menu_allevatori' ); ?>">
 			<?php
 			foreach(wp_get_nav_menus() as $menu)
-				echo '<option value="'.$menu->slug.'" '.selected($menu->slug, $instance['menu_pastori'], false).'>'.$menu->name.'</option>';
+				echo '<option value="'.$menu->slug.'" '.selected($menu->slug, $instance['menu_allevatori'], false).'>'.$menu->name.'</option>';
 			?>
 			</select>
 		</p>
@@ -179,7 +179,7 @@ function widget( $args, $instance ) {
 
 <!-- ID pagine tipologie utenti -->
 		<p>
-			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>pastori, cacciatori, turisti, recupero</strong>. Separati da virgola.</label><br />
+			<label for="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>">ID delle pagine per <strong>allevatori, cacciatori, turisti, recupero</strong>. Separati da virgola.</label><br />
 			<input type="text" id="<?php echo $this->get_field_id( 'id_pagine_tipologie' ); ?>" name="<?php echo $this->get_field_name( 'id_pagine_tipologie' ); ?>" value="<?php echo $instance['id_pagine_tipologie']?>">
 		</p>
 <?php
@@ -196,7 +196,7 @@ function widget( $args, $instance ) {
 
 		$instance['menu_generale'] = $new_instance['menu_generale'];
 		$instance['menu_cacciatori'] = $new_instance['menu_cacciatori'];
-		$instance['menu_pastori'] = $new_instance['menu_pastori'];
+		$instance['menu_allevatori'] = $new_instance['menu_allevatori'];
 		$instance['menu_turisti'] = $new_instance['menu_turisti'];
 		$instance['menu_recupero'] = $new_instance['menu_recupero'];
 

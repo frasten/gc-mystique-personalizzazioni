@@ -209,9 +209,9 @@ function stampa_immagini_utenza() {
 	if(is_home() && !is_paged() && ($wp_query->current_post)==0) {
 		$links = array(
 			array(
-				'img' => 'pastori.jpg',
+				'img' => 'allevatori.jpg',
 				'id' => '272',
-				'testo' => 'Sono un pastore',
+				'testo' => 'Sono un allevatore',
 			),
 			array(
 				'img' => 'cacciatori.jpg',
