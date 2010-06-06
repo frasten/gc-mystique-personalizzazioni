@@ -251,7 +251,7 @@ add_action('mystique_navigation_extra', 'mystique_custom_nav_icons', 20);
 
 add_filter('the_content', 'mystique_imposta_facebook');
 
-add_action('grandicarnivori_header', 'grandicarnivori_partners_top');
+add_action('mystique_header_start', 'grandicarnivori_partners_top');
 
 add_filter('mystique_logo', 'grandicarnivori_logo');
 

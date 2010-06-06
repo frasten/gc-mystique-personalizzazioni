@@ -1,7 +1,4 @@
 data_post.patch
 rimuovo_autore.patch
-action_topright.patch
 rimuovi_descrizione_header.patch
-lightbox-solo-nei-posts.patch
 favicon.patch
-custom_menus_wp3_r14965.patch
