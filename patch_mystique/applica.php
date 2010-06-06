@@ -22,7 +22,17 @@ se non scrivo niente, deve esportare e applicare.
 */
 if ( empty($argv[1]) || $argv[1] == 'uppa') {
 	echo `rm -rf $cur_dir/mystique`;
-	echo `cd ~/informatica/themes/mystique/mystique-latest/ && svn export . $cur_dir/mystique`;
+	$dir_origine = '~/informatica/themes/mystique/mystique-latest/';
+	$svnversion = `svnversion $dir_origine 2>&1`;
+	if (is_numeric($svnversion{0})) {
+		// Ok, e' sotto controllo di versione
+		echo `cd $dir_origine && svn export . $cur_dir/mystique`;
+	}
+	else {
+		// No, e' stato scaricato a mano dallo zip.
+		echo `cp -R $dir_origine $cur_dir/mystique`;
+	}
+
 	define( 'DIR_MYSTIQUE', realpath("$cur_dir/mystique") . '/' );
 }
 
