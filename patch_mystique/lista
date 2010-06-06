@@ -1,4 +1,4 @@
-data_post.patch
-rimuovo_autore.patch
-rimuovi_descrizione_header.patch
-favicon.patch
+00-formato-data-post.patch
+01-rimuovo-autore.patch
+02-rimuovo-descr-header.patch
+03-favicon.patch
