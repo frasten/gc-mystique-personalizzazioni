@@ -1,0 +1,14 @@
+w(H).css("opacity",u.overlayOpacity).fadeIn(u.overlayFadeDuration);
+==>
+w(H).css("opacity",0).show().fadeTo(u.overlayFadeDuration,u.overlayOpacity);
+
+
+
+(N,u.previousKeys)>=0)?B():false}
+==>
+(N,u.previousKeys)>=0)?B():true}
+
+
+w(H).stop().fadeOut(u.overlayFadeDuration,j)
+==>
+w(H).stop().fadeTo(u.overlayFadeDuration,0,j).hide()

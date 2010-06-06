@@ -1,0 +1,36 @@
+--- slimbox2.js.orig	2010-05-26 00:13:59.664541217 +0200
++++ slimbox2.js	2010-05-26 01:25:06.302650448 +0200
+@@ -80,7 +80,8 @@
+ 		$(center).css({top: Math.max(0, middle - (centerHeight / 2)), width: centerWidth, height: centerHeight, marginLeft: -centerWidth/2}).show();
+ 		compatibleOverlay = ie6 || (overlay.currentStyle && (overlay.currentStyle.position != "fixed"));
+ 		if (compatibleOverlay) overlay.style.position = "absolute";
+-		$(overlay).css("opacity", options.overlayOpacity).fadeIn(options.overlayFadeDuration);
++		//$(overlay).css("opacity", options.overlayOpacity).fadeIn(options.overlayFadeDuration);
++		$(overlay).css("opacity", 0).show().fadeTo(options.overlayFadeDuration, options.overlayOpacity);
+ 		position();
+ 		setup(1);
+ 
+@@ -159,7 +160,7 @@
+ 		return (fn(code, options.closeKeys) >= 0) ? close()
+ 			: (fn(code, options.nextKeys) >= 0) ? next()
+ 			: (fn(code, options.previousKeys) >= 0) ? previous()
+-			: false;
++			: true;
+ 	}
+ 
+ 	function previous() {
+@@ -234,10 +235,11 @@
+ 			stop();
+ 			activeImage = prevImage = nextImage = -1;
+ 			$(center).hide();
+-			$(overlay).stop().fadeOut(options.overlayFadeDuration, setup);
++			//$(overlay).stop().fadeOut(options.overlayFadeDuration, setup);
++			$(overlay).stop().animate({opacity: 0}, options.overlayFadeDuration).hide()
+ 		}
+ 
+ 		return false;
+ 	}
+ 
+-})(jQuery);
+\ Manca newline alla fine del file
++})(jQuery);
