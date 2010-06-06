@@ -1,0 +1,172 @@
+/* Copyright @ CSSJockey.com */
+/* Reset Styles */ 
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,abbr,acronym,address,cite,del,dfn,font,img,ins,kbd,q,s,samp,strike,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,.reset{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;} :focus{outline:0;} img{outline:0;border:none;} h1,h2,h3,h4,h5,h6{font-weight:bold;} ol,ul{list-style:inherit;} table{border-collapse:separate;border-spacing:0;} caption,th,td{text-align:left;font-weight:normal;} blockquote:before,blockquote:after,q:before,q:after{content:"";} blockquote,q{quotes:"" "";border-left:3px solid #CCC;padding:0 0 0 7px;margin-left:10px;} a,a:hover{text-decoration:none;} h1{font-size:18pt;} h2{font-size:16pt;} h3{font-size:14pt;} h4{font-size:12pt;} h5{font-size:10pt;} h6{font-size:8pt;} .textleft{text-align:left;} .textright{text-align:right;} .textcenter, .aligncenter{text-align:center;} .textjustify{text-align:justify;} .hidden{display:none;visibility:hidden;} .alignleft{float:left;} .alignright{float:right;} small{font-size:90%;} b,strong{font-weight:bold;} code{font-family:"Courier New",Courier,monospace;} .clearfix:after{clear:both;display:block;content:" ";height:0;visibility:hidden;} .clearfix{display:inline-block;} * html .clearfix{height:1%;} .clearfix{display:block;} li.clearfix{display:list-item;} .aligncenter{display:block;margin-left:auto;margin-right:auto;} img.alignright{margin:10px 0 10px 10px;} .floatleft{float:left;} .floatright{float:right;} .clear{clear:both;display:block;height:0;visibility:hidden;}
+body{
+	background:#000000 url(images/bg.jpg) repeat;
+	font:normal 10pt Arial, Helvetica, sans-serif;
+	color:#2a2a2a;
+	line-height:1.6;
+}
+a{
+	color:#196fb1;
+}
+#cjsp-wrapper{
+	width:960px;
+	margin:0 auto 40px;
+}
+#cjsp-logo {
+	text-align:center;
+	padding-top: 20px;
+}
+#topbar {
+	float: left;
+	background-color: white;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #696;
+	color: #666;
+}
+#wrapper_partners {
+	width:960px;
+	margin: 0 auto;
+}
+#wrapper_partners span {
+	display: block;
+	margin-bottom: 8px;
+}
+#wrapper_partners a {
+	margin: auto 5px;
+}
+#partners_left {
+	float: left;
+}
+#partners_right {
+	float: right;
+}
+.partner img {
+	height: 60px;
+	/* border: 2px solid #157716; */
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+#cjsp-logo .logo {
+	display: block;
+	margin:40px 0 20px;
+	float: none;
+}
+
+
+
+#cjsp-content{
+	background:url(images/contentbg.png) no-repeat;
+	width:960px;
+	height:242px;
+}
+.cjsp-topsection{
+    height:141px;
+}
+.cjsp-heading{
+	font-weight:normal;
+	font-size:24pt;
+	text-align:center;
+	padding:10px 0 4px;
+}
+.cjsp-msg{
+	font-size:12pt;
+	margin:0 auto;
+	width:620px;
+	text-align:center;
+	height:52px;
+	overflow:hidden;
+}
+#cjsp-countdown{
+	margin:0 auto;
+	width:400px;
+	font-size:13pt;
+	padding:16px 0 0 105px;
+}
+#cjsp-subscribeform{
+	position:relative;
+	width:370px;
+	height:30px;
+	margin:52px 0 0 320px;
+}
+.cjsp-inputbox{
+	font:italic 12pt Georgia;
+	color:#999999;
+	border:0px;
+	background:none;
+	width:250px;
+	position:absolute;
+	top:5px;
+	left:0px;
+}
+.cjsp-submit{
+	width:100px;
+	height:30px;
+	position:absolute;
+	top:0px;
+	right:7px;
+	background:none;
+	border:0px;
+	display:block;
+	cursor:pointer;
+}
+.cjsp-spammsg{
+	margin:7px 0 0 0;
+	text-align:center;
+	font-size:8pt;
+	color:#7a7a7a;
+}
+.cjsp-connect{
+	margin:10px 0 0 0;
+	text-align:center;
+}
+.cjsp-sploading{
+	background:url(images/loading.gif) center no-repeat !important;
+}
+
+#notizie {
+	background-color: #e9e9e9;
+	border: 2px solid white;
+	padding: 0 15px 15px;
+	margin-top: 15px;
+}
+
+
+#notizie h2 {
+	color: #157716;
+	margin-top: 30px;
+	font-size: 2em;
+}
+
+#notizie small {
+	color: #666;
+}
+
+#notizie .entry {
+	margin-top: 10px;
+}
+
+#notizie p {
+	margin: 1em 0;
+}
+
+.nelfrattempo {
+	margin-top: 15px;
+}
+
+.footer, .footer a {
+	text-align:center;
+	padding:10px 0 0 0;
+	font-size: 12px;
+	margin-top: 20px;
+	color: white;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}

@@ -1,0 +1,6 @@
+/*
+ * IE 6 Hacks
+ */
+* html ul li, * html ol li { height: 1% } * html body * { overflow: visible } * html iframe, * html frame { overflow: auto } * html frameset { overflow: hidden } html>body ul.comments-list li { height: 1% } .floatleft, .floatright{display:inline;}
+
+/* Custom Hacks Below */
