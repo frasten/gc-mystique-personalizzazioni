@@ -11,7 +11,7 @@ License: GPL3
 
 include 'faq_widget.php';
 include 'tinymce/invii.php';
-
+define('GC_VERSIONE', '1.0');
 
 function grandicarnivori_init() {
 	$config = get_option('mystique');
@@ -21,7 +21,7 @@ function grandicarnivori_init() {
 
 
 function mystique_stili_personalizzati() {
-	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' );
+	wp_enqueue_style( 'my-mystique', GRANDICARNIVORI_PLUGIN_URL . '/styles.css?' . GC_VERSIONE );
 }
 
 function grandicarnivori_ie_di_merda() {
