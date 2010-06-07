@@ -368,6 +368,9 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 .ngg-widget img {border-color: #aea !important;}
 .ngg-thumbnail img:hover, .ngg-gallery-thumbnail img:hover {background-color: #aea !important;}
 
+/* Hack brutale: un'immagine nella galleria del lupo ha meno height
+ * delle altre (74px vs 75) e quindi manda a puttane il layout. */
+#ngg-gallery-1-342 #ngg-image-43 .ngg-gallery-thumbnail {margin-bottom: 1px;}
 
 body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
 
