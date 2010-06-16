@@ -236,6 +236,17 @@ function stampa_immagini_utenza() {
 }
 
 
+/* I post che non vogliamo mostrare sulla home li mettiamo nella categoria
+ * archivio. */
+function escludi_archivio_home($query) {
+	$ID_archivio = '10'; // ID della categoria archivio
+	if ( $query->is_home ) {
+		$query->set('cat', "-$ID_archivio");
+	}
+	return $query;
+}
+
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -270,4 +281,7 @@ add_action('wp_head', 'grandicarnivori_ie_di_merda', 20);
 add_action('wp_head', 'grandicarnivori_slimbox', 20);
 
 add_action('mystique_before_post', 'stampa_immagini_utenza');
+
+/* I post vecchi li mettiamo nella categoria Archivio, e li escludiamo dalla home. */
+add_filter('pre_get_posts', 'escludi_archivio_home');
 ?>
