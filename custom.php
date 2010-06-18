@@ -247,6 +247,10 @@ function escludi_archivio_home($query) {
 }
 
 
+function stampa_archivio() {
+	return wp_get_archives( 'echo=0' );
+}
+
 
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
@@ -284,4 +288,6 @@ add_action('mystique_before_post', 'stampa_immagini_utenza');
 
 /* I post vecchi li mettiamo nella categoria Archivio, e li escludiamo dalla home. */
 add_filter('pre_get_posts', 'escludi_archivio_home');
+add_shortcode('gc_archivio', 'stampa_archivio');
+
 ?>
