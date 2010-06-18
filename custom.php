@@ -248,7 +248,8 @@ function escludi_archivio_home($query) {
 
 
 function stampa_archivio() {
-	return wp_get_archives( 'echo=0' );
+	$out = "<ul>\n" . wp_get_archives( 'echo=0' ) . "</ul>\n";
+	return $out;
 }
 
 
