@@ -253,6 +253,16 @@ function stampa_archivio() {
 }
 
 
+function link_archivio_home() {
+	if ( ! is_home() ) return;
+	$id = 1075;
+	$url = get_permalink( $id );
+	echo "<div style='text-align: center'>\n";
+	echo "<a href='$url'>Visualizza l'archivio completo &raquo;</a>\n";
+	echo "</div>\n";
+}
+
+
 /* Costante per l'url, in modo da funzionare sia in locale che in remoto
  * (in locale ho un link simbolico */
 if ( ! defined('GRANDICARNIVORI_PLUGIN_URL') ) {
@@ -290,5 +300,6 @@ add_action('mystique_before_post', 'stampa_immagini_utenza');
 /* I post vecchi li mettiamo nella categoria Archivio, e li escludiamo dalla home. */
 add_filter('pre_get_posts', 'escludi_archivio_home');
 add_shortcode('gc_archivio', 'stampa_archivio');
+add_action('loop_end', 'link_archivio_home');
 
 ?>
