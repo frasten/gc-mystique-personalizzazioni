@@ -1,0 +1,16 @@
+Da: http://wordpress.org/support/topic/411207?replies=1 
+
+--- lib/core.php.orig	2010-06-18 15:47:46.662275286 +0200
++++ lib/core.php	2010-06-18 15:48:34.378671022 +0200
+@@ -590,8 +590,9 @@
+  $strText = strip_tags($strText);
+  if(strlen($strText) > $intLength):
+    $strText = mb_substr($strText,0,$intLength);
+-   $strText = mb_substr($strText,0,strrpos($strText,' '));
+-    return $strText.'...';
++   $intLength=strrpos($strText,' ');
++   $strText = $intLength > 0 ? mb_substr($strText, 0, $intLength) : $strText;
++   return $strText.'...';
+  else:
+    return $strText;
+  endif;

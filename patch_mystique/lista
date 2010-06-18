@@ -2,3 +2,4 @@
 01-rimuovo-autore.patch
 02-rimuovo-descr-header.patch
 03-favicon.patch
+04-featured-posts-truncate.patch
