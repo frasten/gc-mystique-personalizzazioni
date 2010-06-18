@@ -166,8 +166,8 @@ function grandicarnivori_banner() {
 function grandicarnivori_mostrafigli() {
 	global $post;
 	// Prendo l'id del menu superiore dalle impostazioni di mystique
-	$navtype = get_mystique_option('navigation');
-	$menu = wp_get_nav_menu_object(substr($navtype, 5));
+	$locations = get_nav_menu_locations();
+	$menu = wp_get_nav_menu_object( $locations['primary'] );
 	$menu_items = wp_get_nav_menu_items($menu->term_id);
 	$sorted_menu_items = array();
 	foreach ((array) $menu_items as $key => $menu_item) $sorted_menu_items[$menu_item->menu_order] = wp_setup_nav_menu_item($menu_item);
