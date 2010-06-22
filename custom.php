@@ -121,7 +121,7 @@ EOF;
 
 
 function gc_favicon() {
-	echo GRANDICARNIVORI_PLUGIN_URL . '/img/favicon.png';
+	echo GRANDICARNIVORI_PLUGIN_URL . '/img/favicon_new.png';
 }
 
 function grandicarnivori_copyright() {
