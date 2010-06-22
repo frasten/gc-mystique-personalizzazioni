@@ -15,7 +15,7 @@
 /* Titolo principale */
 #site-title {padding: 1em 0;}
 
-#site-title #logo {margin-top: 10px;}
+#site-title #logo {margin-top: 10px;margin-left: 5px;}
 
 body.fixed .header-wrapper {width: 100%;background: transparent url(img/sfondo_top.png) no-repeat 0 0;}
 #header {width: 940px;margin: 0 auto;}

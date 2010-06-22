@@ -11,7 +11,7 @@ License: GPL3
 
 include 'faq_widget.php';
 include 'tinymce/invii.php';
-define('GC_VERSIONE', '1.1');
+define('GC_VERSIONE', '1.2');
 
 function grandicarnivori_init() {
 	$config = get_option('mystique');
