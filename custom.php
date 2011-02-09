@@ -76,7 +76,7 @@ function mystique_imposta_facebook($content) {
 	// is_page() is_home() is_feed() is_single()
 	if (/*is_single() || */is_page() ) return $content;
 
-	$button = get_sfc_like_button('show_faces=false&layout=button_count');
+	$button = get_sfc_like_button('showfaces=false&layout=button_count&action=recommend&height=30');
 	$content = $content . $button;
 	return $content;
 }
