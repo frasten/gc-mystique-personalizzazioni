@@ -76,8 +76,17 @@ function mystique_imposta_facebook($content) {
 	// is_page() is_home() is_feed() is_single()
 	if (/*is_single() || */is_page() ) return $content;
 
-	$button = get_sfc_like_button('showfaces=false&layout=button_count&action=recommend&height=30');
-	$content = $content . $button;
+	$fbbutton = get_sfc_like_button('showfaces=false&layout=button_count&action=recommend&height=30');
+	// Aggiungo il pulsante di Google+
+	// NB: disabilitarlo nelle opzioni di Shareholic, dato che e' gia' qui.
+	// Vedere: http://blog.shareaholic.com/2011/07/shareaholic-for-publishers-fb-like-send-google-1-sharing-buttons-support/
+	$thispage = "http://$_SERVER[SERVER_NAME]$_SERVER[SCRIPT_NAME]";
+	$shareholic = <<<EOF
+	<div class='shareaholic-like-buttonset gc_googleplus'>
+		<a class='shareaholic-googleplusone' shr_href='$thispage' shr_size='medium' shr_count='true'></a>
+	</div>
+EOF;
+	$content = $content . $fbbutton . $shareholic;
 	return $content;
 }
 

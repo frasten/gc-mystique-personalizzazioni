@@ -363,6 +363,8 @@ li.comment .comment-head.comment-author-admin,li.comment .comment-head.bypostaut
 /* Sexy Bookmarks */
 .sexy-bookmarks {margin: auto 20px !important;}
 .single .fb-like {margin-bottom: 0; float: left;}
+.gc_googleplus {float: right;}
+.shareaholic-show-on-load {clear: both;}
 
 /* NextGen Gallery */
 .ngg-widget {text-align: center !important}
