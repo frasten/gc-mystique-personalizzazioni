@@ -394,6 +394,9 @@ body {background: url(img/body_sfondo.jpg) repeat scroll transparent;}
  **********************************************************************/
 
 @media print {
- #sidebar, #footer, .post-tags, .fb-like {display:none;}
- #primary-content {font-family: "Times New Roman", serif}
+ #sidebar, #footer, .post-tags, .fb-like, .single-navigation,
+   .fb_iframe_widget, #commentform
+   {display:none;}
+ #primary-content {font-family: "Times New Roman", serif;}
+ h1.title {text-shadow: none;}
 }
